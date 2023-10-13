@@ -3,44 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>数据库学习第一天</title>
-    <style>
-        body {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-        }
-
-        @media only screen and (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-        }
-    </style>
 </head>
 <body>
 <h1>Day01</h1>
-<p>-- DDL之库的操作</p>
-<p>-- 1.查看所有的库</p>
-<pre>show databases;</pre>
-<br>
-<br>
-<p>-- 2.创建库</p>
-<p>-- 常见的字符集：UTF8  GBK  GB2312  GB18030</p>
-<pre>create database mydb charset = UTF8;</pre>
-<pre>create database if not exists mydb charset = UTF8;</pre>
-<br>
-<br>
-<p>-- 3.查看创建库的语句【字符集】</p>
-<pre>show create database mydb;</pre>
-<br>
-<br>
+    <p>-- DDL之库的操作</p>
+    <p>-- 1.查看所有的库</p>
+    show databases ;
+    <br>
+    <br>
+    <p>-- 2.创建库
+    <p>-- 常见的字符集：UTF9  GBK  GB2312  GB18030</p>
+    <p>create database mydb charset =UTF8;</p>
+    <p>create database if not exists mydb charset =UTF8;</p>
+    <br>
+    <br>
+    <p>-- 3.查看创建库的语句【字符集】</p>
+    <p>show create database mydb;</p>
+    <br>
+    <br>
 <p>-- 4.使用库【切换库】</p>
-<pre>use mydb;</pre>
-<br>
+    use mydb;
+    <br>
 <br>
 <p>-- 5.删除库</p>
-<pre>drop database mydb;</pre>
+<p>drop database mydb;</p>
 drop database if exists mydb;
 </body>
 </html>
