@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class JdbcDmeo02 {
     public static void main(String[] args) throws Exception {
@@ -19,9 +23,18 @@ public class JdbcDmeo02 {
         String sql = "select * from class";
         ResultSet rs = stmt.executeQuery(sql);//执行查询操作是调用此方法，返回值ResultSet
         //处理结果
-        while (rs.next()) { //循环一次取一行，一行记录映射为1个map，多个map放到list集合
+        List<Map<String, Object>> list = new ArrayList<>();
+        while (rs.next()) { //循环一次取一行，一行记录映射为1个map（行映射），多个map放到list集合
+            Map<String, Object> map = new HashMap<>();
+            map.put("id",rs.getInt("id"));
+            map.put("name",rs.getString("name"));
+            map.put("floor",rs.getInt("floor"));
+            map.put("teacher_id",rs.getInt("teacher_id"));
+            list.add(map);
         }
-        System.out.println(list);
+//        System.out.println(list);
+//        list.forEach((map)-> System.out.println(map));
+        list.forEach(System.out::println);
         //第六步：释放资源（先创建后关闭）
         rs.close();
         stmt.close();
