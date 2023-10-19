@@ -1,4 +1,4 @@
-package jdbc;
+package com.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,12 +9,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class JdbcDmeo02 {
+public class JdbcDemo02 {
     public static void main(String[] args) throws Exception {
         //第一步：加载驱动程序（"com.mysql.cj.jdbc.Driver"）
         Class.forName("com.mysql.cj.jdbc.Driver");
         //第二步：通过驱动建立连接（比较耗时-TCP/IP）
-        String url = "jdbc:mysql://localhost:3306/tedu?serverTimezone=Asia/Shanghai&CharacterEncoding=utf8";
+        String url="jdbc:mysql://localhost:3306/tedu?" + "serverTimezone=Asia/Shanghai&CharacterEncoding=utf8";
         Connection conn = DriverManager.getConnection(url, "root", "root");
         System.out.println("连接建立成功");
         //第三步：基于连接对象创建Statement对象
