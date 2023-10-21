@@ -1,10 +1,16 @@
 package cn.tedu.spring.example;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.awt.*;
 
 @Component
+//@Service
+//@Controller
+//@Repository
 public class User {
     final String YELLOW = "\u001B[93m";
     final String RED_COLOR = "\u001B[31m";
