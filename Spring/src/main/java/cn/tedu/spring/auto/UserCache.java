@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * 标识为Spring组件:获取该类的Bean对象
  */
+
 @Component
 public class UserCache {
     /*
