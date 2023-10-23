@@ -52,4 +52,17 @@ class ApplicationTests {
 	void deleteByIdTest(){
 		System.out.println(weiboMapper.deleteById(207));
 	}
+
+	/*
+        根据微博id修改微博数据
+     */
+	@Test
+	void updateByIdTest () {
+		Weibo weibo=new Weibo();
+		weibo.setId(206L);
+		weibo.setContent("让所有可怜的孩子不再胆怯\n所有邪恶的人不再掌握话语权");
+		weibo.setCreated(new Date());
+		weibo.setUserId(100L);
+		System.out.println(weiboMapper.updateById(weibo));
+	}
 }
