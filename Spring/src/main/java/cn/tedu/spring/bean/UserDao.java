@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
  * Controller注解:控制层,将该类标识为Spring的组件,为该类创建Spring Bean对象;
  * Component注解:不分层,将该类标识为普通的Spring的组件,为该类创建Spring Bean对象.
  */
+
 //@Repository
 //@Service
 //@Controller
