@@ -1,7 +1,9 @@
 package cn.tedu._03mybatis;
 
 import cn.tedu._03mybatis.mapper.UserMapper;
+import cn.tedu._03mybatis.mapper.WeiboMapper;
 import cn.tedu._03mybatis.pojo.entity.User;
+import cn.tedu._03mybatis.pojo.entity.Weibo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,5 +31,17 @@ class ApplicationTests {
 		user.setNickname("IU");
 		user.setCreated(new Date());
 		userMapper.insertUser(user);//调用接口方法
+	}
+
+	@Autowired
+	private WeiboMapper weiboMapper;
+
+	@Test
+	void insertWeiboTest(){
+		Weibo weibo = new Weibo();
+		weibo.setContent("如果有一天,我不得不离去");
+		weibo.setCreated(new Date());
+		weibo.setUserId(100L);
+		weiboMapper.insertWeibo(weibo);
 	}
 }
