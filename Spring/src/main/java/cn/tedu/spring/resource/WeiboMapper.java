@@ -1,6 +1,6 @@
 package cn.tedu.spring.resource;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -19,3 +19,11 @@ public class WeiboMapper {
     @Resource
     private ResMapper ZZZZ;
 }
+
+
+
+
+
+
+
+

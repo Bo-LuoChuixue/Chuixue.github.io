@@ -3,16 +3,24 @@ package cn.tedu.spring.scope;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+/**
+ * 测试类
+ */
 public class TestOrder {
     public static void main(String[] args) {
-        final String GREEN_COLOR = "\u001B[32m";
-        final String INDIGO_COLOR = "\u001B[38;5;68m";
-        final String RESET_CODE = "\033[0m";
-
-        ApplicationContext context=new AnnotationConfigApplicationContext("cn.tedu.spring.scope");
+        ApplicationContext context = new AnnotationConfigApplicationContext("cn.tedu.spring.scope");
+        // 第1次获取对象:order1
         Order order1 = context.getBean(Order.class);
-        System.out.println(GREEN_COLOR+order1+RESET_CODE);
+        System.out.println(order1);
+        // 第2次获取对象:order2
         Order order2 = context.getBean(Order.class);
-        System.out.println(INDIGO_COLOR+order2+RESET_CODE);
+        System.out.println(order2);
     }
 }
+
+
+
+
+
+
+

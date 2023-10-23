@@ -4,6 +4,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+/**
+ * 引用外部属性文件
+ */
 @PropertySource(value = "classpath:application.properties")
 @Component
 public class dataBase {
@@ -23,3 +26,9 @@ public class dataBase {
                 '}';
     }
 }
+
+
+
+
+
+

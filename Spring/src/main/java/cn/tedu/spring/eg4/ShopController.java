@@ -2,43 +2,38 @@ package cn.tedu.spring.eg4;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Component
 public class ShopController {
-    final String GREEN_COLOR = "\u001B[32m";
-    final String YELLOW = "\u001B[93m";
-    String PURPLE = "\u001B[35m";
-    String SKY_BLUE = "\u001B[34m";
-    final String RESET_CODE = "\033[0m";
-
-    private String inventory;
+    private String name;
 
     public ShopController() {
-        System.out.println(PURPLE+"第一步：实例化"+RESET_CODE);
+        System.out.println("1:实例化");
     }
 
-    @Value("肉灵芝")
-    public void setInventory(String inventory) {
-        this.inventory = inventory;
-        System.out.println(GREEN_COLOR+"第二步：属性赋值"+RESET_CODE);
+    @Value("达达商店")
+    public void setName(String name) {
+        this.name = name;
+        System.out.println("2:属性赋值");
     }
 
     @PostConstruct
-    public void price(){
-        System.out.println(SKY_BLUE+"第三步：初始化"+RESET_CODE);
+    public void init(){
+        System.out.println("3:初始化");
     }
 
     @PreDestroy
-    public void destruction(){
-        System.out.println(YELLOW+"第五步：销毁"+RESET_CODE);
+    public void destroy(){
+        System.out.println("5:销毁");
     }
 
     @Override
     public String toString() {
         return "ShopController{" +
-                "inventory='" + inventory + '\'' +
+                "name='" + name + '\'' +
                 '}';
     }
 }

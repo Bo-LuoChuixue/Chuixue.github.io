@@ -5,17 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-import java.awt.*;
-
-@Component
-//@Service
-//@Controller
-//@Repository
+//@Component
 public class User {
-    final String YELLOW = "\u001B[93m";
-    final String RED_COLOR = "\u001B[31m";
-    final String RESET_CODE = "\033[0m";
     public void run(){
-        System.out.println(YELLOW+"东方红太阳升"+RESET_CODE+RED_COLOR+"中国出了个毛泽东"+RESET_CODE);
+        System.out.println("我的大刀已经饥渴难耐了");
     }
 }
