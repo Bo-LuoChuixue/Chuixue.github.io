@@ -11,11 +11,6 @@ public class Product {
     private Integer num;
     private String comment;
 
-    @Value("此刀天下有敌")
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
     @Override
     public String toString() {
         return "Product{" +
@@ -23,5 +18,18 @@ public class Product {
                 ", num='" + num + '\'' +
                 ", comment='" + comment + '\'' +
                 '}';
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
+
+    @Value("此刀天下有敌")
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

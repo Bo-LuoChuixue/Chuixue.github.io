@@ -1,4 +1,4 @@
 package cn.tedu.spring.resource;
 
-public class ResMapper {
+public interface ResMapper {
 }
