@@ -39,9 +39,17 @@ class ApplicationTests {
 	@Test
 	void insertWeiboTest(){
 		Weibo weibo = new Weibo();
-		weibo.setContent("如果有一天,我不得不离去");
+		weibo.setContent("如果有一天我变得很有钱，我会买下所有难得一见的笑脸");
 		weibo.setCreated(new Date());
 		weibo.setUserId(100L);
-		weiboMapper.insertWeibo(weibo);
+		System.out.println(weiboMapper.insertWeibo(weibo));
+	}
+
+	/*
+	    根据微博id删除1条微博
+	 */
+	@Test
+	void deleteByIdTest(){
+		System.out.println(weiboMapper.deleteById(207));
 	}
 }
