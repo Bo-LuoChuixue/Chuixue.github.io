@@ -10,6 +10,7 @@ public class ShopController {
     final String GREEN_COLOR = "\u001B[32m";
     final String YELLOW = "\u001B[93m";
     String PURPLE = "\u001B[35m";
+    String SKY_BLUE = "\u001B[34m";
     final String RESET_CODE = "\033[0m";
 
     private String inventory;
@@ -26,7 +27,7 @@ public class ShopController {
 
     @PostConstruct
     public void price(){
-        System.out.println("第三步：初始化");
+        System.out.println(SKY_BLUE+"第三步：初始化"+RESET_CODE);
     }
 
     @PreDestroy
