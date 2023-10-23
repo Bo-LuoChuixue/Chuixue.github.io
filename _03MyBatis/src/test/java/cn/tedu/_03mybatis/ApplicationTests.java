@@ -30,5 +30,4 @@ class ApplicationTests {
 		user.setCreated(new Date());
 		userMapper.insertUser(user);//调用接口方法
 	}
-
 }
