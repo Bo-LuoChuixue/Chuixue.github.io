@@ -7,4 +7,71 @@
         INSERT INTO weibo(content, created, user_id)
         VALUES (#{content}, #{created}, #{userId})
     </insert>
+
+    <delete id="deleteById">
+        DELETE
+        FROM weibo
+        WHERE id = #{id}
+    </delete>
+
+    <update id="updateById">
+        UPDATE weibo
+        SET content=#{content},
+            created=#{created},
+            user_id=#{userId}
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectById" resultType="cn.tedu._03mybatis.pojo.entity.Weibo">
+        SELECT id, content, created, user_id userId
+        FROM weibo
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectAll" resultType="cn.tedu._03mybatis.pojo.entity.Weibo">
+        SELECT id, content, created, user_id userId
+        FROM weibo
+    </select>
+
+    <select id="selectByWid" resultType="cn.tedu._03mybatis.pojo.vo.WeiboVO1">
+        SELECT content, created
+        FROM weibo
+        WHERE id = #{wid}
+    </select>
+
+    <select id="selectByUid" resultType="cn.tedu._03mybatis.pojo.vo.WeiboVO2">
+        SELECT id, content, created
+        FROM weibo
+        WHERE user_id = #{uid}
+    </select>
+
+    <!--动态修改-->
+    <update id="dynamicUpdate">
+        UPDATE weibo
+        <set>
+            <if test="content!=null">content=#{content},</if>
+            <if test="created!=null">created=#{created},</if>
+            <if test="userId!=null">user_id=#{userId}</if>
+        </set>
+        WHERE id=#{id}
+    </update>
+
+    <delete id="dynamicDeleteTest1">
+        delete from weibo where id in(
+            <foreach collection="array" item="aaa" separator=",">
+                #{aaa}
+            </foreach>
+            )
+    </delete>
+
+    <!-- 动态删除：list集合方式 -->
+    <delete id="dynamicDeleteTest2">
+        delete from weibo where id in(
+        <foreach collection="list" item="aaa" separator=",">
+            #{aaa}
+        </foreach>
+        )
+    </delete>
+
 </mapper>
+

@@ -4,6 +4,8 @@ import cn.tedu._03mybatis.pojo.entity.Weibo;
 import cn.tedu._03mybatis.pojo.vo.WeiboVO1;
 import cn.tedu._03mybatis.pojo.vo.WeiboVO2;
 import org.apache.ibatis.annotations.*;
+
+import java.lang.annotation.Target;
 import java.util.List;
 
 @Mapper
@@ -49,4 +51,22 @@ public interface WeiboMapper {
      */
     //@Select("select id,content,created from weibo where user_id=#{uid}")
     List<WeiboVO2> selectByUid(int uid);
+
+    /**
+     * 动态修改
+     * 根据微博id修改微博的信息【id，content，created，user_id 】
+     */
+    int dynamicUpdate(Weibo weibo);
+
+    /*
+     * 动态删除1: 数组方式
+     * 根据微博id动态删除微博的信息
+     * DELETE FROM weibo WHERE id IN (2,3,6)
+     */
+    int dynamicDelete1(Integer[] ids);
+
+    /*
+     * 动态删除2: list集合方式
+     */
+    int dynamicDelete2(List<Integer> ids);
 }

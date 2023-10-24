@@ -7,6 +7,8 @@ import cn.tedu._03mybatis.pojo.entity.Weibo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.ArrayList;
 import java.util.Date;
 
 @SpringBootTest
@@ -97,5 +99,37 @@ class ApplicationTests {
 	@Test
 	void selectByUidTest(){
 		System.out.println(weiboMapper.selectByUid(100));
+	}
+
+	/*
+	    动态修改
+	 */
+	@Test
+	void dynamicUpdateTest(){
+		Weibo weibo=new Weibo();
+		weibo.setId(200L);
+		weibo.setContent("春潮带雨晚来急，野渡无人舟自横");
+		weibo.setCreated(new Date());
+		System.out.println(weiboMapper.dynamicUpdate(weibo));
+	}
+
+	/*
+	    动态删除
+	 */
+	@Test
+	void dynamicDeleteTest1(){
+		Integer[] ids={203,205,207};
+		System.out.println(weiboMapper.dynamicDelete1(ids));
+	}
+
+	/*
+	 * 动态删除2: list集合方式
+	 */
+	@Test
+	void dynamicDeleteTest2(){
+		ArrayList<Integer> ids=new ArrayList<>();
+		ids.add(205);
+		ids.add(206);
+		System.out.println(weiboMapper.dynamicDelete2(ids));
 	}
 }
