@@ -65,4 +65,9 @@ class ApplicationTests {
 		weibo.setUserId(100L);
 		System.out.println(weiboMapper.updateById(weibo));
 	}
+
+	@Test
+	void selectById(){
+		System.out.println(weiboMapper.selectById(206));
+	}
 }

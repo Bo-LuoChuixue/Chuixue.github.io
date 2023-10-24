@@ -1,10 +1,7 @@
 package cn.tedu._03mybatis.mapper;
 
 import cn.tedu._03mybatis.pojo.entity.Weibo;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface WeiboMapper {
@@ -22,4 +19,11 @@ public interface WeiboMapper {
      */
     @Update("update weibo set content=#{content},created=#{created},user_id=#{userId} where id=#{id}")
     int updateById(Weibo weibo);
+
+    /*
+        根据微博id查询1条微博
+        字段名和属性名不一样，查询时可以使用别名
+     */
+    @Select("select id,content,created,user_id userId from weibo where id=#{id}")
+    Weibo selectById(int id);
 }
