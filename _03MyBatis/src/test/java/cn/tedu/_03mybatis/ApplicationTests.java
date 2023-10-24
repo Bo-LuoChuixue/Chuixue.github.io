@@ -39,7 +39,7 @@ class ApplicationTests {
 	@Test
 	void insertWeiboTest(){
 		Weibo weibo = new Weibo();
-		weibo.setContent("如果有一天我变得很有钱\n我会买下所有难得一见的笑脸");
+		weibo.setContent("如果有一天我变得很有钱\n我会想尽一切办法倒流时间");
 		weibo.setCreated(new Date());
 		weibo.setUserId(100L);
 		System.out.println(weiboMapper.insertWeibo(weibo));
