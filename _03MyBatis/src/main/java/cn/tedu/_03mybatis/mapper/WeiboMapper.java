@@ -1,7 +1,10 @@
 package cn.tedu._03mybatis.mapper;
 
 import cn.tedu._03mybatis.pojo.entity.Weibo;
+import cn.tedu._03mybatis.pojo.vo.WeiboVO1;
+import cn.tedu._03mybatis.pojo.vo.WeiboVO2;
 import org.apache.ibatis.annotations.*;
+import java.util.List;
 
 @Mapper
 public interface WeiboMapper {
@@ -26,4 +29,24 @@ public interface WeiboMapper {
      */
     @Select("select id,content,created,user_id userId from weibo where id=#{id}")
     Weibo selectById(int id);
+
+    /*
+        查询所有微博信息
+     */
+    @Select("select id,content,created,user_id userId from weibo")
+    List<Weibo> selectAll();
+
+    /*
+        指定字段查询：
+        查询指定微博id的 内容content和发布时间created
+     */
+    @Select("select content,created from weibo where id=#{wid}")
+    WeiboVO1 selectByWid(int wid);
+
+    /**
+     * 练习：指定字段查询
+     * 查询指定用户【用户id】发的所有微博信息【微博id，微博内容，微博发布时间】
+     */
+    @Select("select id,content,created from weibo where user_id=#{uid}")
+    List<WeiboVO2> selectByUid(int uid);
 }

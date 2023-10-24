@@ -66,8 +66,36 @@ class ApplicationTests {
 		System.out.println(weiboMapper.updateById(weibo));
 	}
 
+	/*
+        根据微博id查询1条微博
+     */
 	@Test
-	void selectById(){
+	void selectByIdTest(){
 		System.out.println(weiboMapper.selectById(206));
+	}
+
+	/*
+        查询所有微博信息
+     */
+	@Test
+	void selectAllTest(){
+		System.out.println(weiboMapper.selectAll());
+	}
+
+	/*
+        指定字段查询：
+        查询指定微博id的 内容content和发布时间created
+     */
+	@Test
+	void selectByWidTest(){
+		System.out.println(weiboMapper.selectByWid(200));
+	}
+
+	/**
+	 * 查询指定用户【用户id】发的所有微博信息【微博id，微博内容，微博发布时间】
+	 */
+	@Test
+	void selectByUidTest(){
+		System.out.println(weiboMapper.selectByUid(100));
 	}
 }
