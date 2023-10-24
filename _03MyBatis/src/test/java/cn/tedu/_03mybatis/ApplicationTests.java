@@ -26,9 +26,9 @@ class ApplicationTests {
 	@Test
 	void insertUserTest(){
 		User user=new User();
-		user.setUsername("李知恩");
-		user.setPassword("19930516");
-		user.setNickname("IU");
+		user.setUsername("裴珠泫");
+		user.setPassword("19910329");
+		user.setNickname("Irene");
 		user.setCreated(new Date());
 		userMapper.insertUser(user);//调用接口方法
 	}
