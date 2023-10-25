@@ -12,4 +12,20 @@
     <select id="selectResultMap1" resultMap="aaa">
         select id,content,user_id from weibo where id=#{wid}
     </select>
+
+    <!--单表练习-->
+    <resultMap id="bbb" type="cn.tedu._03mybatis.pojo.vo.ResultMapVO2">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="nickname" property="nickname"/>
+    </resultMap>
+    <select id="selectResultMap2" resultMap="bbb">
+        SELECT id,
+               username,
+               password,
+               nickname
+        FROM user
+        WHERE id = #{uid}
+    </select>
 </mapper>

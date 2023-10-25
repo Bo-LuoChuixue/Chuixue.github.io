@@ -1,10 +1,7 @@
 package cn.tedu._03mybatis.mapper;
 
-import cn.tedu._03mybatis.pojo.vo.CommentVO1;
-import cn.tedu._03mybatis.pojo.vo.CommentVO2;
-import cn.tedu._03mybatis.pojo.vo.ResultMapVO1;
+import cn.tedu._03mybatis.pojo.vo.*;
 import org.apache.ibatis.annotations.Mapper;
-
 import javax.xml.stream.events.Comment;
 import java.util.List;
 
@@ -31,4 +28,17 @@ public interface CommentMapper {
     List<CommentVO2> selectCommentById2(int wid);
 
     ResultMapVO1 selectResultMap1(int wid);
+
+    /**
+     * 单表ResultMap练习
+     * 根据用户id查询该用户的相关信息: 用户id, 用户名, 密码, 昵称
+     * 接口方法名:selectResultMap2, 参数名:uid
+     * VO类名:ResultMapVO2
+     * SQL语句:
+     *        SELECT id,username,password,nickname FROM user
+     *        WHERE id=用户的id
+     */
+    ResultMapVO2 selectResultMap2(int uid);
+
+    ResultMapVO3 selectResultMap3(int uid);
 }
