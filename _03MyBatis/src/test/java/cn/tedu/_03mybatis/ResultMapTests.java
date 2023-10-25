@@ -19,4 +19,9 @@ public class ResultMapTests {
     void selectResultMap2Test(){
         System.out.println(commentMapper.selectResultMap2(100));
     }
+
+    @Test
+    void selectResultMap3Test(){
+        System.out.println(commentMapper.selectResultMap3(100));
+    }
 }
