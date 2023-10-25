@@ -69,4 +69,6 @@ public interface WeiboMapper {
      * 动态删除2: list集合方式
      */
     int dynamicDelete2(List<Integer> ids);
+
+    int selectCount();
 }

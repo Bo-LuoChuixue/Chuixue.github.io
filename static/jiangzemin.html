@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>江主席怒斥香港记者</title>
+    <link href="/NationalEmblem.ico" rel="shortcut icon" type="image/x-icon">
+    <style>
+        p {
+            color: blue;
+            text-indent: 50px;
+            word-wrap: break-word;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<table cellpadding=0 cellspacing=20 align=center>
+    <tr align=center><td><img  src="http://news.enorth.com.cn/gn/images2/0211/lyj376.jpg" border=1></td></tr>
+</table>
+<center>
+    <h1>江主席怒斥香港记着</h1>
+    <video width="640" height="360" controls autoplay>
+        <source src="videoplayback.mp4" type="video/ogg">
+    </video>
+    <p onclick="document.getElementById('audio').play()">很惭愧，只做了一点微小的工作</p>
+    <audio id="audio" src="VID_20231009181951-1.mp3"></audio>
+</center>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        var audio = document.getElementById('audio');
+        var text = document.getElementsByTagName('p')[0];
+        text.onclick = function() {
+            audio.play();
+        };
+    });
+</script>
+
+</body>
+</html>

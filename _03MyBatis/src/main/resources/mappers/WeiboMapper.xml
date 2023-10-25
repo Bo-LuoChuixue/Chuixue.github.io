@@ -73,5 +73,14 @@
         )
     </delete>
 
-</mapper>
+    <select id="selectCount" resultType="int">
+        select count(*) from weibo
+    </select>
 
+    <select id="selectWeiboById" resultType="cn.tedu._03mybatis.pojo.vo.WeiboVO3">
+        select w.content,w.created,u.nickname
+        from user u join weibo w on u.id =w.user_Id
+        where w.id=#{wid}
+    </select>
+
+</mapper>

@@ -132,4 +132,14 @@ class ApplicationTests {
 		ids.add(206);
 		System.out.println(weiboMapper.dynamicDelete2(ids));
 	}
+
+	@Test
+	void selectCountTest(){
+		System.out.println(weiboMapper.selectCount());
+	}
+
+	@Test
+	void selectWeiboByIdTest(){
+		System.out.println(weiboMapper.selectWeiboById(200));
+	}
 }

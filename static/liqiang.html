@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>李强当选总理</title>
+    <link href="/NationalEmblem.ico" rel="shortcut icon" type="image/x-icon">
+    <style>
+        p {
+            color: blue;
+            text-indent: 50px;
+            word-wrap: break-word;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<table cellpadding=0 cellspacing=20 align=center>
+</table>
+<center>
+    <h1>李强当选总理</h1>
+    <video width="640" height="360" controls autoplay>
+        <source src="Premier_Li_Qiang.mp4" type="video/ogg">
+    </video>
+</center>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        var audio = document.getElementById('audio');
+        var text = document.getElementsByTagName('p')[0];
+        text.onclick = function() {
+            audio.play();
+        };
+    });
+</script>
+
+</body>
+</html>
