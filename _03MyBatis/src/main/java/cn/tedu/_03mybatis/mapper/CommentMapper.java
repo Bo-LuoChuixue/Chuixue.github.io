@@ -2,6 +2,7 @@ package cn.tedu._03mybatis.mapper;
 
 import cn.tedu._03mybatis.pojo.vo.CommentVO1;
 import cn.tedu._03mybatis.pojo.vo.CommentVO2;
+import cn.tedu._03mybatis.pojo.vo.ResultMapVO1;
 import org.apache.ibatis.annotations.Mapper;
 
 import javax.xml.stream.events.Comment;
@@ -29,4 +30,5 @@ public interface CommentMapper {
     /**5. 查询 `selectCommentById2`，根据微博的id查询评论的 **内容、用户ID**（数据库表中确认）*/
     List<CommentVO2> selectCommentById2(int wid);
 
+    ResultMapVO1 selectResultMap1(int wid);
 }
