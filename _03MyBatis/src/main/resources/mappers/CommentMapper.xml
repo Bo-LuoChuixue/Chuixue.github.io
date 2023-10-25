@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.tedu._03mybatis.mapper.CommentMapper">
     <resultMap id="aaa" type="cn.tedu._03mybatis.pojo.vo.ResultMapVO1">
         <id column="id" property="id"/>
@@ -10,7 +10,9 @@
     </resultMap>
 
     <select id="selectResultMap1" resultMap="aaa">
-        select id,content,user_id from weibo where id=#{wid}
+        select id, content, user_id
+        from weibo
+        where id = #{wid}
     </select>
 
     <!--单表练习-->
@@ -21,11 +23,26 @@
         <result column="nickname" property="nickname"/>
     </resultMap>
     <select id="selectResultMap2" resultMap="bbb">
-        SELECT id,
-               username,
-               password,
-               nickname
+        SELECT id, username, password, nickname
         FROM user
         WHERE id = #{uid}
+    </select>
+
+    <!-- 多表resultMap实例 -->
+    <resultMap id="ccc" type="cn.tedu._03mybatis.pojo.vo.ResultMapVO3">
+        <id column="uid" property="id"/>
+        <result column="username" property="username"/>
+        <collection property="weiboList" ofType="cn.tedu._03mybatis.pojo.entity.Weibo">
+            <id column="wid" property="id"/>
+            <result column="content" property="content"/>
+            <result column="created" property="created"/>
+            <result column="user_Id" property="userId"/>
+        </collection>
+    </resultMap>
+    <select id="selectResultMap3" resultMap="ccc">
+        select u.id uid, u.username, w.id wid, w.content, w.created, w.user_id
+        from user u
+                 join weibo w on u.id = w.user_id
+        where u.id = #{uid}
     </select>
 </mapper>
