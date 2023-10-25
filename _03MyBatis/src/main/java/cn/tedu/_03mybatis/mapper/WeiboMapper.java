@@ -3,6 +3,8 @@ package cn.tedu._03mybatis.mapper;
 import cn.tedu._03mybatis.pojo.entity.Weibo;
 import cn.tedu._03mybatis.pojo.vo.WeiboVO1;
 import cn.tedu._03mybatis.pojo.vo.WeiboVO2;
+import cn.tedu._03mybatis.pojo.vo.WeiboVO3;
+import cn.tedu._03mybatis.pojo.vo.WeiboVO4;
 import org.apache.ibatis.annotations.*;
 
 import java.lang.annotation.Target;
@@ -70,5 +72,21 @@ public interface WeiboMapper {
      */
     int dynamicDelete2(List<Integer> ids);
 
+    /**
+     * 统计微博表中共有多少条数据
+     * SELECT COUNT(*) FROM weibo
+     */
     int selectCount();
+
+    /**
+     * 多表查询:
+     * 微博详情页面: 根据微博的id, 查询该条微博的  内容, 发布时间, 用户昵称
+     */
+    WeiboVO3 selectWeiboById(int wid);
+
+    /**
+     * 多表查询
+     * 根据微博的ID, 获取该条微博的所有评论:  评论id, 评论内容, 评论时间, 用户昵称
+     */
+    List<WeiboVO4> selectComment(int wid);
 }

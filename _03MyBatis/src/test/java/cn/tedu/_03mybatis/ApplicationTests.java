@@ -139,7 +139,12 @@ class ApplicationTests {
 	}
 
 	@Test
-	void selectWeiboByIdTest(){
+	void selectWeiboByIdTest() {
 		System.out.println(weiboMapper.selectWeiboById(200));
+	}
+
+	@Test
+	void selectCommentTest(){
+		System.out.println(weiboMapper.selectComment(200));
 	}
 }

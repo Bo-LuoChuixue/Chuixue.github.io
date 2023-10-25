@@ -83,4 +83,11 @@
         where w.id=#{wid}
     </select>
 
+    <select id="selectComment" resultType="cn.tedu._03mybatis.pojo.vo.WeiboVO4">
+        SELECT c.id, c.content, c.created, u.nickname
+        FROM user u
+                 JOIN comment c ON u.id = c.user_id
+        WHERE c.weibo_id = #{wid}
+    </select>
+
 </mapper>
