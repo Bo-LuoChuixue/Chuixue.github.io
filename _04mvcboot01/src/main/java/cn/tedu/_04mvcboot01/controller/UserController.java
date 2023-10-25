@@ -17,6 +17,7 @@ public class UserController {
     public String login(HttpServletRequest request){
         String username=request.getParameter("username");
         String password=request.getParameter("password");
-        return "登陆成功";
+        return username+"："+password;
+
     }
 }
