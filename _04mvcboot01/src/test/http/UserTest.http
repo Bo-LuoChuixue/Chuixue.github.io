@@ -1,0 +1,5 @@
+### 1.登录功能测试：GET请求
+GET http://localhost:8080/v1/users/login?username=IU&password=19930516
+Accept: application/json
+
+###
