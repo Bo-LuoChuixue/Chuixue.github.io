@@ -39,6 +39,9 @@ public class UserController {
         return "添加成功";
     }
 
+    /**
+     * 查询用户列表
+     */
     @RequestMapping("/v1/users/userList")
     @ResponseBody
     public List<UserListVO> userList(){
