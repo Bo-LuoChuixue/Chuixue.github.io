@@ -1,5 +1,10 @@
+## 2.登录功能测试：POST请求
+POST http://localhost:8080/v1/users/login
+Content-Type: application/x-www-form-urlencoded
+
+username=IU&password=19930516
+
+
 ### 1.登录功能测试：GET请求
 GET http://localhost:8080/v1/users/login?username=IU&password=19930516
 Accept: application/json
-
-###
