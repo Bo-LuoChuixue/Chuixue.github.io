@@ -1,4 +1,9 @@
-## 2.登录功能测试：POST请求
+### 3.BMI练习测试
+GET http://localhost:8080/bmi?height=1.78&weight=65
+Accept: application/json
+
+###
+### 2.登录功能测试：POST请求
 POST http://localhost:8080/v1/users/login
 Content-Type: application/x-www-form-urlencoded
 
