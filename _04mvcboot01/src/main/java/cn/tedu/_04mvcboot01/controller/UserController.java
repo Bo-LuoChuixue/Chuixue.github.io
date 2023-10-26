@@ -20,9 +20,13 @@ public class UserController {
     /*
         方式二：声明参数方式接收客户端传递的数据
      */
-    @RequestMapping("/v1/users/login")
+    /*@RequestMapping("/v1/users/login")
     @ResponseBody
     public String login(String username,String password) {
         return username+"："+password;
-    }
+    }*/
+
+    /*
+        方式三：声明POJO类[DTO类]方式接收客户端传递的信息
+     */
 }
