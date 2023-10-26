@@ -1,0 +1,9 @@
+### 2.用户列表测试
+GET http://localhost:8080/v1/users/userList
+Accept: application/json
+
+###
+POST http://localhost:8080/v1/users/insert
+Content-Type: application/x-www-form-urlencoded
+
+username=Lucy&password=123456&nickname=lucy
