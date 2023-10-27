@@ -6,13 +6,13 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.17</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
     <groupId>cn.tedu</groupId>
     <artifactId>_04mvcboot02</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>_04mvcboot02</name>
-    <description>_04mvcboot02</description>
+    <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
