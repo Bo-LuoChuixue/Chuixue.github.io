@@ -11,6 +11,20 @@
     <select id="selectUserList" resultType="cn.tedu._04mvcboot02.vo.UserListVO">
         select username,password from mvcdb.user
     </select>
+
+    <delete id="deleteUser">
+        DELETE FROM mvcdb.user  WHERE id = #{id}
+    </delete>
+
+    <update id="updateUser">
+        update mvcdb.user
+        <set>
+            <if test="username!=null">username=#{username},</if>
+            <if test="password!=null">password=#{password},</if>
+            <if test="nickname!=null">nickname=#{nickname},</if>
+        </set>
+        where id=#{id}
+    </update>
 </mapper>
 
 

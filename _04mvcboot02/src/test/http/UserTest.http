@@ -1,3 +1,13 @@
+### 3.修改用户测试
+GET http://localhost:8080/v1/users/update
+Accept: application/json
+
+id=1&username=123&password= &nickname=
+
+### 3.删除用户测试
+GET http://localhost:8080/v1/users/delete?id=2
+Accept: application/json
+
 ### 2.用户列表测试
 GET http://localhost:8080/v1/users/userList
 Accept: application/json

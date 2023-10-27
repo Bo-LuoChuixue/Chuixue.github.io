@@ -1,6 +1,7 @@
 package cn.tedu._04mvcboot02.controller;
 
 import cn.tedu._04mvcboot02.mapper.UserMapper;
+import cn.tedu._04mvcboot02.pojo.dto.UpdateDTO;
 import cn.tedu._04mvcboot02.pojo.dto.UserAddDTO;
 import cn.tedu._04mvcboot02.pojo.entity.User;
 import cn.tedu._04mvcboot02.vo.UserListVO;
@@ -16,7 +17,7 @@ import java.util.List;
 @Controller
 public class UserController {
     //自动装配
-    @Autowired
+    @Autowired(required = false)
     private UserMapper userMapper;
 
     /**
@@ -46,6 +47,20 @@ public class UserController {
     @ResponseBody
     public List<UserListVO> userList(){
         return userMapper.selectUserList();
+    }
+
+    @RequestMapping("/v1/users/delete")
+    @ResponseBody
+    public String deleteUser(int id){
+        userMapper.deleteUser(id);
+        return "删除成功";
+    }
+
+    @RequestMapping("/v1/users/update")
+    @ResponseBody
+    public String updateUser(UpdateDTO updateDTO){
+        userMapper.updateUser(updateDTO);
+        return "修改成功";
     }
 }
 
