@@ -14,11 +14,3 @@
         VALUES (#{username}, #{password}, #{nickname}, #{created})
     </insert>
 </mapper>
-
-
-
-
-
-
-
-
