@@ -2,7 +2,7 @@ package cn.tedu._04mvcboot02.mapper;
 
 import cn.tedu._04mvcboot02.pojo.dto.UpdateDTO;
 import cn.tedu._04mvcboot02.pojo.entity.User;
-import cn.tedu._04mvcboot02.vo.UserListVO;
+import cn.tedu._04mvcboot02.pojo.vo.UserListVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -28,10 +28,11 @@ public interface UserMapper {
 
     /**
      * 修改用户信息
-     * @param updateDTO
-     * @return
      */
     int updateUser(UpdateDTO updateDTO);
+
+    User selectById(int uid);
+
 }
 
 

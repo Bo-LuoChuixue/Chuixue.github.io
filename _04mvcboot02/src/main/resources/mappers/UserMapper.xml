@@ -8,23 +8,32 @@
         VALUES (#{username}, #{password}, #{nickname}, #{created})
     </insert>
 
-    <select id="selectUserList" resultType="cn.tedu._04mvcboot02.vo.UserListVO">
-        select username,password from mvcdb.user
+    <select id="selectUserList" resultType="cn.tedu._04mvcboot02.pojo.vo.UserListVO">
+        SELECT username, password
+        FROM mvcdb.user
     </select>
 
     <delete id="deleteUser">
-        DELETE FROM mvcdb.user  WHERE id = #{id}
+        DELETE
+        FROM mvcdb.user
+        WHERE id = #{id}
     </delete>
 
     <update id="updateUser">
-        update mvcdb.user
+        UPDATE mvcdb.user
         <set>
             <if test="username!=null">username=#{username},</if>
             <if test="password!=null">password=#{password},</if>
-            <if test="nickname!=null">nickname=#{nickname},</if>
+            <if test="nickname!=null">nickname=#{nickname}</if>
         </set>
-        where id=#{id}
+        WHERE id=#{id}
     </update>
+
+    <select id="selectById" resultType="cn.tedu._04mvcboot02.pojo.entity.User">
+        SELECT id, username, password, nickname, created
+        FROM mvcdb.user
+        WHERE id = #{uid}
+    </select>
 </mapper>
 
 
