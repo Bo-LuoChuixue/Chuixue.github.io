@@ -2,9 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace:指定接口文件的絕對路徑-->
 <mapper namespace="cn.tedu._03mybatis.mapper.UserMapper">
     <insert id="insertUser">
-        insert into user(username, password, nickname, created)
-        values (#{username}, #{password}, #{nickname}, #{created})
+        INSERT INTO user(username, password, nickname, created)
+        VALUES (#{username}, #{password}, #{nickname}, #{created})
     </insert>
 </mapper>

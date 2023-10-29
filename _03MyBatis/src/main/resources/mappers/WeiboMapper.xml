@@ -56,31 +56,52 @@
         WHERE id=#{id}
     </update>
 
-    <delete id="dynamicDeleteTest1">
-        delete from weibo where id in(
-            <foreach collection="array" item="aaa" separator=",">
-                #{aaa}
-            </foreach>
-            )
+    <!--
+        动态删除:数组方式
+        DELETE FROM weibo WHERE id IN (2,3,6)
+        <foreach>标签
+           collection属性：需要遍历的对象类型,数组为array，集合为list
+           item属性：遍历出每个元素的变量名称
+           separator属性：不同元素间的分隔符(一切以SQL语法为准)
+    -->
+    <sql id="deleteSql">
+        DELETE
+        FROM weibo
+        WHERE id IN
+    </sql>
+    <delete id="dynamicDelete1">
+        <include refid="deleteSql"/>
+        (
+        <foreach collection="array" item="aaa" separator=",">
+            #{aaa}
+        </foreach>
+        )
     </delete>
 
-    <!-- 动态删除：list集合方式 -->
-    <delete id="dynamicDeleteTest2">
-        delete from weibo where id in(
+    <!--动态删除:List集合方式, collection属性值为 list-->
+    <delete id="dynamicDelete2">
+        <include refid="deleteSql"/>
+        (
         <foreach collection="list" item="aaa" separator=",">
             #{aaa}
         </foreach>
         )
     </delete>
 
+    <!--统计数量
+        注意: resultType 属性值为 int
+    -->
     <select id="selectCount" resultType="int">
-        select count(*) from weibo
+        SELECT COUNT(*)
+        FROM weibo
     </select>
 
+    <!--多表查询: 单条微博的内容,时间,用户昵称-->
     <select id="selectWeiboById" resultType="cn.tedu._03mybatis.pojo.vo.WeiboVO3">
-        select w.content,w.created,u.nickname
-        from user u join weibo w on u.id =w.user_Id
-        where w.id=#{wid}
+        SELECT w.content, w.created, u.nickname
+        FROM user u
+                 JOIN weibo w ON u.id = w.user_id
+        WHERE w.id = #{wid}
     </select>
 
     <select id="selectComment" resultType="cn.tedu._03mybatis.pojo.vo.WeiboVO4">

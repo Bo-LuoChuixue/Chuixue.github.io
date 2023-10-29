@@ -3,16 +3,26 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.tedu._03mybatis.mapper.CommentMapper">
+    <!--
+        关于ResultMap标签
+        1.<id>:映射主键字段
+        2.<result>:映射非主键字段
+        3.column属性:SQL语句查询字段名[可以为别名]
+        4.property属性:JAVA对象属性名
+    -->
     <resultMap id="aaa" type="cn.tedu._03mybatis.pojo.vo.ResultMapVO1">
         <id column="id" property="id"/>
         <result column="content" property="content"/>
-        <result column="user_Id" property="userId"/>
+        <result column="user_id" property="userId"/>
     </resultMap>
 
+    <!--注意此处使用: resultMap 属性-->
     <select id="selectResultMap1" resultMap="aaa">
-        select id, content, user_id
-        from weibo
-        where id = #{wid}
+        SELECT id,
+               content,
+               user_id
+        FROM weibo
+        WHERE id = #{wid}
     </select>
 
     <!--单表练习-->
@@ -23,12 +33,24 @@
         <result column="nickname" property="nickname"/>
     </resultMap>
     <select id="selectResultMap2" resultMap="bbb">
-        SELECT id, username, password, nickname
+        SELECT id,
+               username,
+               password,
+               nickname
         FROM user
         WHERE id = #{uid}
     </select>
 
-    <!-- 多表resultMap实例 -->
+    <!--
+        ResultMap多表查询
+        将指定用户发布的微博存放到List集合中
+        1.<id>:主键
+        2.<result>:非主键
+        3.column属性:SQL语句查询字段名[可以为别名]
+        4.property属性:JAVA类属性名
+        5.<collection>标签:映射集合类型属性,主要应用于一对多和多对多
+        6.ofType属性:集合中的JAVA类型
+    -->
     <resultMap id="ccc" type="cn.tedu._03mybatis.pojo.vo.ResultMapVO3">
         <id column="uid" property="id"/>
         <result column="username" property="username"/>
@@ -36,13 +58,43 @@
             <id column="wid" property="id"/>
             <result column="content" property="content"/>
             <result column="created" property="created"/>
-            <result column="user_Id" property="userId"/>
+            <result column="user_id" property="userId"/>
         </collection>
     </resultMap>
     <select id="selectResultMap3" resultMap="ccc">
-        select u.id uid, u.username, w.id wid, w.content, w.created, w.user_id
-        from user u
-                 join weibo w on u.id = w.user_id
-        where u.id = #{uid}
+        SELECT u.id uid,
+               u.username,
+               w.id wid,
+               w.content,
+               w.created,
+               w.user_id
+        FROM user u
+                 JOIN weibo w ON u.id = w.user_id
+        WHERE u.id = #{uid}
+    </select>
+
+    <!--多表ResultMap练习-->
+    <resultMap id="ddd" type="cn.tedu._03mybatis.pojo.vo.ResultMapVO4">
+        <id column="wid" property="id"/>
+        <result column="wcontent" property="content"/>
+        <collection property="commentList" ofType="cn.tedu._03mybatis.pojo.entity.Comment">
+            <id column="cid" property="id"/>
+            <result column="ccontent" property="content"/>
+            <result column="created" property="created"/>
+            <result column="user_id" property="userId"/>
+            <result column="weibo_id" property="weiboId"/>
+        </collection>
+    </resultMap>
+    <select id="selectResultMap4" resultMap="ddd">
+        SELECT w.id      wid,
+               w.content wcontent,
+               c.id      cid,
+               c.content ccontent,
+               c.created,
+               c.user_id,
+               c.weibo_id
+        FROM weibo w
+                 JOIN comment c ON w.id = c.weibo_id
+        WHERE w.id = #{wid}
     </select>
 </mapper>
