@@ -3,7 +3,7 @@ package cn.tedu._03mybatis.pojo.vo;
 import java.util.Date;
 
 public class WeiboVO1 {
-    //查询内容content和发布时间created
+    //微博内容content,发布时间created
     private String content;
     private Date created;
 
