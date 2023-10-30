@@ -1,0 +1,12 @@
+CREATE
+DATABASE IF NOT EXISTS mybatisdb DEFAULT CHARSET=UTF8;
+USE
+mybatisdb;
+DROP TABLE IF EXISTS orders;
+CREATE TABLE orders
+(
+    id     INT PRIMARY KEY AUTO_INCREMENT,
+    state  VARCHAR(20),
+    amount DOUBLE(10, 2),
+    created TIMESTAMP
+)CHARSET=UTF8;
