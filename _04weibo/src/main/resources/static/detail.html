@@ -13,7 +13,8 @@
     <hr>
     <div v-for="c in arr">
         <h4>
-            <span style="color:red">{{c.nickname}}评论道:</span>{{c.content}}
+            <span style="color:red">{{c.nickname}}评论道:</span>
+            <span v-html="formatContent(c.content)"></span>
             <span style="float: right">发布于：{{c.created}}</span>
         </h4>
     </div>
@@ -49,6 +50,16 @@
                         location.href = "/login.html";
                     }
                 })
+            },
+            formatContent(content) {
+                const urlRegex = /(https?:\/\/[^\s]+)/g;
+                const matchedUrls = content.match(urlRegex);
+                if (matchedUrls) {
+                    matchedUrls.forEach(url => {
+                        content = content.replace(url, `<a href="${url}" target="_blank">${url}</a>`);
+                    });
+                }
+                return content;
             }
         },
         created: function (){
