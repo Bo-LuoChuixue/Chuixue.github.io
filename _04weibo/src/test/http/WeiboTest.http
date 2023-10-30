@@ -1,0 +1,8 @@
+### 1.发布微博功能
+POST http://localhost:8080/v1/weibo/insert
+Content-Type: application/json
+
+{
+  "content": "我坚信任何困难都难不倒英雄的中国人民！"
+}
+

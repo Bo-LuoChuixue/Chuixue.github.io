@@ -3,8 +3,8 @@ package cn.tedu._04weibo.pojo.dto;
 /**
  * 发布微博的DTO类
  */
-
 public class InsertWeiboDTO {
+    //微博内容
     private String content;
 
     @Override
@@ -22,3 +22,11 @@ public class InsertWeiboDTO {
         this.content = content;
     }
 }
+
+
+
+
+
+
+
+
