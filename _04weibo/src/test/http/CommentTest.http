@@ -1,3 +1,8 @@
+### 2.获取评论功能测试
+GET http://localhost:8080/v1/comment/selectByWeiboId?id=200
+Accept: application/json
+
+
 ### 1.发表评论功能测试
 POST http://localhost:8080/v1/comment/insert
 Content-Type: application/json
