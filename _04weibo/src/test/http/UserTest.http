@@ -20,8 +20,8 @@ POST http://localhost:8080/v1/users/reg
 Content-Type: application/json
 
 {
-  "username": "Tom",
+  "username": "橙留香",
   "password": "123456",
-  "nickname": "tom"
+  "nickname": "橙留香"
 }
 
