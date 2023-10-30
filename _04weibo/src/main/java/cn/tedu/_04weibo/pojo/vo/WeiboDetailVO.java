@@ -2,14 +2,14 @@ package cn.tedu._04weibo.pojo.vo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.xml.crypto.Data;
+import java.util.Date;
+import java.util.zip.DataFormatException;
 
 /**
  * 微博详情页功能的VO类
  */
-
 public class WeiboDetailVO {
-    //微博id，微博内容，微博发布时间，用户昵称
+    //微博id,微博内容,微博发布时间,用户昵称
     private Long id;
     private String content;
     /*
@@ -21,8 +21,8 @@ public class WeiboDetailVO {
         格式3: 2000年01月01日00时00分00秒
       2.timezone参数:指定时区
      */
-    @JsonFormat(pattern = "yyyy.MM.dd.HH:mm:ss", timezone = "GMT+8")
-    private Data created;
+    @JsonFormat(pattern = "yyyy年MM月dd日HH时mm分ss秒", timezone = "GMT+8")
+    private Date created;
     private String nickname;
 
     @Override
@@ -51,11 +51,11 @@ public class WeiboDetailVO {
         this.content = content;
     }
 
-    public Data getCreated() {
+    public Date getCreated() {
         return created;
     }
 
-    public void setCreated(Data created) {
+    public void setCreated(Date created) {
         this.created = created;
     }
 
@@ -67,3 +67,11 @@ public class WeiboDetailVO {
         this.nickname = nickname;
     }
 }
+
+
+
+
+
+
+
+

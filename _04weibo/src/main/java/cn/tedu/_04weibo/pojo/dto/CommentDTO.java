@@ -3,8 +3,8 @@ package cn.tedu._04weibo.pojo.dto;
 /**
  * 发表评论DTO类
  */
-
 public class CommentDTO {
+    //微博id,评论内容
     private Long weiboId;
     private String content;
 
@@ -32,3 +32,11 @@ public class CommentDTO {
         this.content = content;
     }
 }
+
+
+
+
+
+
+
+

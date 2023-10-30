@@ -9,6 +9,7 @@ import cn.tedu._04weibo.pojo.vo.WeiboIndexVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
@@ -22,9 +23,6 @@ public class WeiboController {
 
     /**
      * 发布微博功能
-     * @param insertWeiboDTO
-     * @param session
-     * @return
      */
     @PostMapping("insert")
     public int insertWeibo(@RequestBody InsertWeiboDTO insertWeiboDTO, HttpSession session){
@@ -32,8 +30,9 @@ public class WeiboController {
             1.校验用户登录状态
             2.发布微博[调用接口]
          */
-        UserVO userVO = (UserVO) session.getAttribute("user");//1.校验用户登录状态
-        if (userVO == null){ //未登录
+        //1.校验用户登录状态
+        UserVO userVO = (UserVO) session.getAttribute("user");
+        if (userVO == null){//未登录
             return 2;
         }
         //2.存入数据
@@ -47,12 +46,12 @@ public class WeiboController {
     }
 
     /**
-     * 微博首页列表展示【不需要校验用户登录状态】
+     * 微博首页列表展示[不需要校验用户登录状态]
      */
     @GetMapping("selectIndex")
     public List<WeiboIndexVO> selectIndex(){
         /*
-             直接调用接口获取所有微博信息
+            直接调用接口获取所有微博信息
          */
         return weiboMapper.selectIndex();
     }
@@ -64,6 +63,7 @@ public class WeiboController {
     public WeiboDetailVO selectById(int id){
         return weiboMapper.selectById(id);
     }
+
 }
 
 

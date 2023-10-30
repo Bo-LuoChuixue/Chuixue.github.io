@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
@@ -20,21 +21,30 @@ public class CommentController {
     private CommentMapper commentMapper;
 
     @PostMapping("insert")
-    public int insertComment(@RequestBody CommentDTO commentDTO, HttpSession session) {
+    public int insertComment(@RequestBody CommentDTO commentDTO, HttpSession session){
         /*
             1.校验用户登录状态;
             2.调用接口插入数据.
          */
-        UserVO userVO=(UserVO) session.getAttribute("user");
-        if (userVO==null){ //未登录
+        UserVO userVO = (UserVO) session.getAttribute("user");
+        if (userVO == null){ //未登录
             return 2;
         }
         //插入数据
-        Comment comment=new Comment();
-        BeanUtils.copyProperties(commentDTO,comment);
+        Comment comment = new Comment();
+        BeanUtils.copyProperties(commentDTO, comment);
         comment.setCreated(new Date());
         comment.setUserId(userVO.getId());
         commentMapper.insertComment(comment);
+
         return 1;
     }
 }
+
+
+
+
+
+
+
+

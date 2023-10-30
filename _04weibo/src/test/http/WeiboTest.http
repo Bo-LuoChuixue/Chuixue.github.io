@@ -2,11 +2,9 @@
 GET http://localhost:8080/v1/weibo/selectById?id=200
 Accept: application/json
 
-
 ### 2.微博首页列表展示功能测试
 GET http://localhost:8080/v1/weibo/selectIndex
 Accept: application/json
-
 
 ### 1.发布微博功能测试
 POST http://localhost:8080/v1/weibo/insert

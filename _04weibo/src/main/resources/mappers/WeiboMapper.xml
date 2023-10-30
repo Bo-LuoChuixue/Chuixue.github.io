@@ -3,16 +3,17 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.tedu._04weibo.mapper.WeiboMapper">
-    <!-- 发布微博功能 -->
+    <!--发布微博功能-->
     <insert id="insertWeibo">
         INSERT INTO weibo(content, created, user_id)
         VALUES (#{content}, #{created}, #{userId})
     </insert>
 
-    <!-- 微博首页列表展示 -->
+    <!--微博首页列表展示-->
     <select id="selectIndex" resultType="cn.tedu._04weibo.pojo.vo.WeiboIndexVO">
-        select w.id,w.content,u.nickname from user u
-        join weibo w on u.id=w.user_id
+        SELECT w.id, w.content, u.nickname
+        FROM user u
+                 JOIN weibo w ON u.id = w.user_id
     </select>
 
     <!--微博详情页功能-->
