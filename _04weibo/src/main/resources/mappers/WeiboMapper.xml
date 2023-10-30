@@ -12,7 +12,8 @@
         select w.id,w.content,u.nickname from user u
         join weibo w on u.id=w.user_id
     </select>
-    
+
+    <!--微博详情页功能-->
     <resultMap id="aaa" type="cn.tedu._04weibo.pojo.vo.WeiboDetailVO">
         <id column="id" property="id"/>
         <result column="content" property="content"/>

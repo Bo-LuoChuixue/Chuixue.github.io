@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/v1/comment/")
 public class CommentController {
     @PostMapping("insert")
-    public int insertComment(@RequestBody CommentDTO commentDTO, HttpSession session){
-
+    public int insertComment(@RequestBody CommentDTO commentDTO, HttpSession session) {
+        return 1;
     }
 }
