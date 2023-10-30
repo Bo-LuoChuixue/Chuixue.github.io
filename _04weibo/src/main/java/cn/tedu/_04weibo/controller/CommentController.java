@@ -3,16 +3,14 @@ package cn.tedu._04weibo.controller;
 import cn.tedu._04weibo.mapper.CommentMapper;
 import cn.tedu._04weibo.pojo.dto.CommentDTO;
 import cn.tedu._04weibo.pojo.entity.Comment;
+import cn.tedu._04weibo.pojo.vo.CommentVO;
 import cn.tedu._04weibo.pojo.vo.UserVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/comment/")
@@ -36,8 +34,17 @@ public class CommentController {
         comment.setCreated(new Date());
         comment.setUserId(userVO.getId());
         commentMapper.insertComment(comment);
-
         return 1;
+    }
+
+    /**
+     * 评论列表功能
+     * @param id
+     * @return
+     */
+    @GetMapping("selectByWeiboId")
+    public List<CommentVO> selectByWeiboId(int id){
+
     }
 }
 
