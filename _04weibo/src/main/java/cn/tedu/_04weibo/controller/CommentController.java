@@ -44,7 +44,7 @@ public class CommentController {
      */
     @GetMapping("selectByWeiboId")
     public List<CommentVO> selectByWeiboId(int id){
-
+        return commentMapper.selectByWeiboId(id);
     }
 }
 

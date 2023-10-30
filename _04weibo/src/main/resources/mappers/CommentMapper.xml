@@ -8,4 +8,12 @@
         INSERT INTO blog.comment(content, created, user_id, weibo_id)
         VALUES (#{content}, #{created}, #{userId}, #{weiboId})
     </insert>
+
+    <!-- 获取评论功能：用户表和评论表连接 -->
+    <select id="selectByWeiboId" resultType="cn.tedu._04weibo.pojo.vo.CommentVO">
+        select c.id, c.content, c.created, u.nickname
+        from user u
+                 join comment c on u.id = c.user_id
+        where c.weibo_id = #{id}
+    </select>
 </mapper>
