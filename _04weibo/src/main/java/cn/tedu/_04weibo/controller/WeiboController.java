@@ -4,14 +4,13 @@ import cn.tedu._04weibo.mapper.WeiboMapper;
 import cn.tedu._04weibo.pojo.dto.InsertWeiboDTO;
 import cn.tedu._04weibo.pojo.entity.Weibo;
 import cn.tedu._04weibo.pojo.vo.UserVO;
+import cn.tedu._04weibo.pojo.vo.WeiboInsertVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/weibo/")
@@ -20,6 +19,12 @@ public class WeiboController {
     @Autowired
     private WeiboMapper weiboMapper;
 
+    /**
+     * 发布微博功能
+     * @param insertWeiboDTO
+     * @param session
+     * @return
+     */
     @PostMapping("insert")
     public int insertWeibo(@RequestBody InsertWeiboDTO insertWeiboDTO, HttpSession session){
         /*
@@ -38,6 +43,17 @@ public class WeiboController {
         weiboMapper.insertWeibo(weibo);
         //发布成功
         return 1;
+    }
+
+    /**
+     * 微博首页列表展示【不需要校验用户登录状态】
+     */
+    @GetMapping("selectIndex")
+    public List<WeiboInsertVO> selectIndex(){
+        /*
+             直接调用接口获取所有微博信息
+         */
+        return weiboMapper.selectIndex();
     }
 }
 
