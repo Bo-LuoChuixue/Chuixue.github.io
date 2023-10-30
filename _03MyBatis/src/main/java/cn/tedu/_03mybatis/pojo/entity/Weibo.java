@@ -1,8 +1,10 @@
 package cn.tedu._03mybatis.pojo.entity;
 
-
 import java.util.Date;
 
+/**
+ * 实体类
+ */
 public class Weibo {
     private Long id;
     private String content;
@@ -51,3 +53,11 @@ public class Weibo {
         this.userId = userId;
     }
 }
+
+
+
+
+
+
+
+

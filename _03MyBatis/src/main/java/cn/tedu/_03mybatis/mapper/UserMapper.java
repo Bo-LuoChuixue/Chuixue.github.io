@@ -14,3 +14,9 @@ public interface UserMapper {
     //@Insert("INSERT INTO user(username,password,nickname,created) VALUES (#{username},#{password},#{nickname},#{created})")
     int insertUser(User user);
 }
+
+
+
+
+
+

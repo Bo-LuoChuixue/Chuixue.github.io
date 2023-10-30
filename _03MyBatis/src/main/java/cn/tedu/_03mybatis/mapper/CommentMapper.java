@@ -3,6 +3,7 @@ package cn.tedu._03mybatis.mapper;
 import cn.tedu._03mybatis.pojo.entity.Comment;
 import cn.tedu._03mybatis.pojo.vo.*;
 import org.apache.ibatis.annotations.*;
+
 import java.util.List;
 
 @Mapper
@@ -65,3 +66,20 @@ public interface CommentMapper {
      */
     ResultMapVO4 selectResultMap4(int wid);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

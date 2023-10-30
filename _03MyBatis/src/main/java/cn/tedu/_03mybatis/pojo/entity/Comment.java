@@ -5,7 +5,6 @@ import java.util.Date;
 /**
  * 评论表实体类
  */
-
 public class Comment {
     private Long id;
     private String content;

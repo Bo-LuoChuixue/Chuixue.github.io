@@ -3,9 +3,9 @@ package cn.tedu._03mybatis.pojo.entity;
 import java.util.Date;
 
 /**
- * 实体类 和user表字段一一映射
+ * 实体类
+ * 和user表字段一一映射
  */
-
 public class User {
     private Long id;
     private String username;
@@ -13,6 +13,7 @@ public class User {
     private String nickname;
     private Date created;
 
+    // set() get() toString()
     public Long getId() {
         return id;
     }
@@ -64,3 +65,11 @@ public class User {
                 '}';
     }
 }
+
+
+
+
+
+
+
+

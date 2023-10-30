@@ -6,6 +6,7 @@ import cn.tedu._03mybatis.pojo.vo.WeiboVO2;
 import cn.tedu._03mybatis.pojo.vo.WeiboVO3;
 import cn.tedu._03mybatis.pojo.vo.WeiboVO4;
 import org.apache.ibatis.annotations.*;
+
 import java.util.List;
 
 @Mapper
@@ -99,3 +100,9 @@ public interface WeiboMapper {
      */
     List<WeiboVO4> selectComment(int wid);
 }
+
+
+
+
+
+
