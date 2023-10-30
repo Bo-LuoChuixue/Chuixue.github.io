@@ -13,6 +13,8 @@ public class WeiboDetailVO {
     private Data created;
     private String nickname;
 
+
+
     @Override
     public String toString() {
         return "WeiboDetailVO{" +
