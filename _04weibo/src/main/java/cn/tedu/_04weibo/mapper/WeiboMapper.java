@@ -16,7 +16,7 @@ public interface WeiboMapper {
 
     /**
      * 微博首页列表
-     * @return
+     * @return List集合
      */
     List<WeiboIndexVO> selectIndex();
 

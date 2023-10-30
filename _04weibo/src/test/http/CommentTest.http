@@ -1,0 +1,8 @@
+### 1.发表评论功能测试
+POST http://localhost:8080/v1/comment/insert
+Content-Type: application/json
+
+{
+  "weiboId": 200,
+  "content": "长亭外，古道边，芳草碧连天"
+}
