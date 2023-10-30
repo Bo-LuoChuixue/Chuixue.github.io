@@ -10,12 +10,4 @@ public interface WeiboMapper {
      * 插入数据:使用实体类
      */
     int insertWeibo(Weibo weibo);
-
 }
-
-
-
-
-
-
-
