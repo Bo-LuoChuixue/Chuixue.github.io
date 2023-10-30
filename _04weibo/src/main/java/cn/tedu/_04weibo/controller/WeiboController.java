@@ -1,5 +1,6 @@
 package cn.tedu._04weibo.controller;
 
+import cn.tedu._04weibo.mapper.WeiboMapper;
 import cn.tedu._04weibo.pojo.dto.InsertWeiboDTO;
 import cn.tedu._04weibo.pojo.entity.Weibo;
 import cn.tedu._04weibo.pojo.vo.UserVO;
