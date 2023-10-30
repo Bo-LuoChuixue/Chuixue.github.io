@@ -56,7 +56,19 @@
                 const matchedUrls = content.match(urlRegex);
                 if (matchedUrls) {
                     matchedUrls.forEach(url => {
-                        content = content.replace(url, `<a href="${url}" target="_blank">网页链接</a>`);
+                        // 使用axios获取网页链接的标题
+                        axios.get(url).then(function(response) {
+                            const titleRegex = /<title>(.*?)<\/title>/;
+                            const matchedTitle = response.data.match(titleRegex);
+                            if (matchedTitle) {
+                                const title = matchedTitle[1];
+                                const linkTag = `<a href="${url}" target="_blank">${title}</a>`;
+                                content = content.replace(url, linkTag);
+                                v.$forceUpdate(); // 强制更新视图
+                            }
+                        }).catch(function(error) {
+                            console.log(error);
+                        });
                     });
                 }
                 return content;
