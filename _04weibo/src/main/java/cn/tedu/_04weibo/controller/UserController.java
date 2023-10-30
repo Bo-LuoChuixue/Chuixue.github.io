@@ -5,13 +5,18 @@ import cn.tedu._04weibo.pojo.dto.UserLoginDTO;
 import cn.tedu._04weibo.pojo.dto.UserRegDTO;
 import cn.tedu._04weibo.pojo.entity.User;
 import cn.tedu._04weibo.pojo.vo.UserVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
+/**
+ * Slf4j注解：Lombok提供的日志注解
+ */
+
+@Slf4j
 @RestController
 @RequestMapping("/v1/users/")
 public class UserController {
@@ -30,7 +35,7 @@ public class UserController {
               1.1 被占用: return 2;
               1.2 未被占用: 插入数据表[插入数据接口]
          */
-        System.out.println("userRegDTO = " + userRegDTO);
+        log.debug("userRegDTO="+userRegDTO);//使用日志进行调试
         UserVO userVO = userMapper.selectUser(userRegDTO.getUsername());
         if(userVO != null){ //被占用
             return 2;
