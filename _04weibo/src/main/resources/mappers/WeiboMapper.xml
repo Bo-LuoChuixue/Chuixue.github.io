@@ -19,5 +19,10 @@
         <result column="created" property="created"/>
         <result column="nickname" property="nickname"/>
     </resultMap>
-    <select id="selectById"
+    <select id="selectById" resultMap="aaa">
+        SELECT w.id, w.content, w.created, u.nickname
+        FROM user u
+                 JOIN weibo w ON u.id = w.user_id
+        WHERE w.id = #{id}
+    </select>
 </mapper>

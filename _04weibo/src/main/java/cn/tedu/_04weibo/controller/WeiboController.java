@@ -4,6 +4,7 @@ import cn.tedu._04weibo.mapper.WeiboMapper;
 import cn.tedu._04weibo.pojo.dto.InsertWeiboDTO;
 import cn.tedu._04weibo.pojo.entity.Weibo;
 import cn.tedu._04weibo.pojo.vo.UserVO;
+import cn.tedu._04weibo.pojo.vo.WeiboDetailVO;
 import cn.tedu._04weibo.pojo.vo.WeiboIndexVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,14 @@ public class WeiboController {
              直接调用接口获取所有微博信息
          */
         return weiboMapper.selectIndex();
+    }
+
+    /**
+     * 微博详情功能
+     */
+    @GetMapping("selectById")
+    public WeiboDetailVO selectById(int id){
+        return weiboMapper.selectById(id);
     }
 }
 
