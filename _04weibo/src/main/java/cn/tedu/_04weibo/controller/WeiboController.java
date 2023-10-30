@@ -4,7 +4,7 @@ import cn.tedu._04weibo.mapper.WeiboMapper;
 import cn.tedu._04weibo.pojo.dto.InsertWeiboDTO;
 import cn.tedu._04weibo.pojo.entity.Weibo;
 import cn.tedu._04weibo.pojo.vo.UserVO;
-import cn.tedu._04weibo.pojo.vo.WeiboInsertVO;
+import cn.tedu._04weibo.pojo.vo.WeiboIndexVO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -49,7 +49,7 @@ public class WeiboController {
      * 微博首页列表展示【不需要校验用户登录状态】
      */
     @GetMapping("selectIndex")
-    public List<WeiboInsertVO> selectIndex(){
+    public List<WeiboIndexVO> selectIndex(){
         /*
              直接调用接口获取所有微博信息
          */

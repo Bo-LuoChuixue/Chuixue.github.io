@@ -7,4 +7,9 @@
         INSERT INTO weibo(content, created, user_id)
         VALUES (#{content}, #{created}, #{userId})
     </insert>
+
+    <select id="selectIndex" resultType="cn.tedu._04weibo.pojo.vo.WeiboIndexVO">
+        select w.id,w.content,u.nickname from user u
+        join weibo w on u.id=w.user_id
+    </select>
 </mapper>

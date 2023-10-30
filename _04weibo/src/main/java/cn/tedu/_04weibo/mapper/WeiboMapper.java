@@ -1,7 +1,7 @@
 package cn.tedu._04weibo.mapper;
 
 import cn.tedu._04weibo.pojo.entity.Weibo;
-import cn.tedu._04weibo.pojo.vo.WeiboInsertVO;
+import cn.tedu._04weibo.pojo.vo.WeiboIndexVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -14,5 +14,9 @@ public interface WeiboMapper {
      */
     int insertWeibo(Weibo weibo);
 
-    List<WeiboInsertVO> selectIndex();
+    /**
+     * 微博首页列表
+     * @return
+     */
+    List<WeiboIndexVO> selectIndex();
 }
