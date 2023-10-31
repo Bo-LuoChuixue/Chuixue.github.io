@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
@@ -55,7 +56,7 @@ public class UserController {
 
     @ApiOperation(value = "登录功能")
     @PostMapping("login")
-    public int login(@RequestBody UserLoginDTO userLoginDTO, HttpSession session){
+    public int login(@RequestBody UserLoginDTO userLoginDTO,@ApiIgnore HttpSession session){
         /*
             1.调用接口,根据用户名查询;
               1.1 未查到数据,return 3;
@@ -81,7 +82,7 @@ public class UserController {
      */
     @ApiOperation(value = "获取当前用户")
     @GetMapping("currentUser")
-    public UserVO currentUser(HttpSession session){
+    public UserVO currentUser(@ApiIgnore HttpSession session){
         //userVO可能为非空,可能为null
         UserVO userVO = (UserVO) session.getAttribute("user");
 
@@ -93,7 +94,7 @@ public class UserController {
      */
     @ApiOperation(value = "退出登录")
     @GetMapping("logout")
-    public void logout(HttpSession session){
+    public void logout(@ApiIgnore HttpSession session){
         session.removeAttribute("user");
     }
 

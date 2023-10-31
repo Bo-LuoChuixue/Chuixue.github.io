@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
@@ -28,7 +29,7 @@ public class WeiboController {
      */
     @ApiOperation(value = "发布微博")
     @PostMapping("insert")
-    public int insertWeibo(@RequestBody InsertWeiboDTO insertWeiboDTO, HttpSession session){
+    public int insertWeibo(@RequestBody InsertWeiboDTO insertWeiboDTO,@ApiIgnore HttpSession session){
         /*
             1.校验用户登录状态
             2.发布微博[调用接口]

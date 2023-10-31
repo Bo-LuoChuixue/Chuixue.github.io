@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +24,7 @@ public class CommentController {
 
     @ApiOperation(value = "发布评论")
     @PostMapping("insert")
-    public int insertComment(@RequestBody CommentDTO commentDTO, HttpSession session){
+    public int insertComment(@RequestBody CommentDTO commentDTO,@ApiIgnore HttpSession session){
         /*
             1.校验用户登录状态;
             2.调用接口插入数据.
