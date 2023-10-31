@@ -12,6 +12,8 @@ public class UserRegDTO {
     //用户名,密码,昵称
     @ApiModelProperty(value = "用户名",required = true,example = "Tony")
     private String username;
+    @ApiModelProperty(value = "密码",required = true,example = "123456")
     private String password;
+    @ApiModelProperty(value = "昵称",required = true,example = "tony")
     private String nickname;
 }
