@@ -51,7 +51,7 @@ public class WeiboController {
     /**
      * 微博首页列表展示[不需要校验用户登录状态]
      */
-    @ApiOperation(value = "展示首页")
+    @ApiOperation(value = "微博首页")
     @GetMapping("selectIndex")
     public List<WeiboIndexVO> selectIndex(){
         /*
