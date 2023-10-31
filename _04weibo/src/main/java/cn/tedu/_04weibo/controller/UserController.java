@@ -79,6 +79,7 @@ public class UserController {
     /**
      * 获取当前用户功能
      */
+    @ApiOperation(value = "获取当前用户")
     @GetMapping("currentUser")
     public UserVO currentUser(HttpSession session){
         //userVO可能为非空,可能为null
@@ -90,6 +91,7 @@ public class UserController {
     /**
      * 退出登录功能
      */
+    @ApiOperation(value = "退出登录")
     @GetMapping("logout")
     public void logout(HttpSession session){
         session.removeAttribute("user");
