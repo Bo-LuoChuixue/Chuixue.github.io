@@ -15,6 +15,8 @@
         <module>_04mvcboot01</module>
         <module>_04mvcboot02</module>
         <module>_04weibo</module>
+        <module>egmvc1</module>
+        <module>egmybatis4</module>
     </modules>
 
     <properties>
