@@ -28,4 +28,12 @@ public class JsonResult {
         this.code=code;
         this.msg=msg;
     }
+
+    /**
+     * 第二个构造方法：用于没有具体数据的controller方法
+     */
+    public JsonResult(StatusCode statusCode){
+        this.code=statusCode.getCode();
+        this.msg=statusCode.getMsg();
+    }
 }

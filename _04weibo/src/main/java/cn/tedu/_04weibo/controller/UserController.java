@@ -1,6 +1,7 @@
 package cn.tedu._04weibo.controller;
 
 import cn.tedu._04weibo.common.response.JsonResult;
+import cn.tedu._04weibo.common.response.StatusCode;
 import cn.tedu._04weibo.mapper.UserMapper;
 import cn.tedu._04weibo.pojo.dto.UserLoginDTO;
 import cn.tedu._04weibo.pojo.dto.UserRegDTO;
@@ -44,7 +45,7 @@ public class UserController {
         log.debug("userRegDTO="+userRegDTO);//使用日志进行调试
         UserVO userVO = userMapper.selectUser(userRegDTO.getUsername());
         if(userVO != null){ //被占用
-            return new JsonResult(1004,"用户名被占用");
+            return new JsonResult(StatusCode.USERNAME_ALREADY_EXISTS);
         }
         //执行注册流程
         User user = new User();
