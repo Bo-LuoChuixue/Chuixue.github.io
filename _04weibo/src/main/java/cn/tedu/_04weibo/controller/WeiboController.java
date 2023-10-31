@@ -8,11 +8,13 @@ import cn.tedu._04weibo.pojo.vo.WeiboDetailVO;
 import cn.tedu._04weibo.pojo.vo.WeiboIndexVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
+
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
@@ -30,14 +32,14 @@ public class WeiboController {
      */
     @ApiOperation(value = "发布微博")
     @PostMapping("insert")
-    public int insertWeibo(@RequestBody InsertWeiboDTO insertWeiboDTO,@ApiIgnore HttpSession session){
+    public int insertWeibo(@RequestBody InsertWeiboDTO insertWeiboDTO, @ApiIgnore HttpSession session) {
         /*
             1.校验用户登录状态
             2.发布微博[调用接口]
          */
         //1.校验用户登录状态
         UserVO userVO = (UserVO) session.getAttribute("user");
-        if (userVO == null){//未登录
+        if (userVO == null) {//未登录
             return 2;
         }
         //2.存入数据
@@ -55,7 +57,7 @@ public class WeiboController {
      */
     @ApiOperation(value = "微博首页")
     @GetMapping("selectIndex")
-    public List<WeiboIndexVO> selectIndex(){
+    public List<WeiboIndexVO> selectIndex() {
         /*
             直接调用接口获取所有微博信息
          */
@@ -67,8 +69,11 @@ public class WeiboController {
      */
     @ApiOperation(value = "微博详情")
     @GetMapping("selectById")
-    @ApiImplicitParam(name = "id",value = "微博编号",required = true,dataType = "int")
-    public WeiboDetailVO selectById(int id){
+    @ApiImplicitParams(value = {
+            @ApiImplicitParam(name = "id", value = "微博编号", required = true, dataType = "int"),
+            @ApiImplicitParam(name = "username", value = "用户名", required = true, dataType = "string")
+    })
+    public WeiboDetailVO selectById(int id, String name) { //username参数单纯用于做Knife4j测试，无其他作用
         return weiboMapper.selectById(id);
     }
 }
