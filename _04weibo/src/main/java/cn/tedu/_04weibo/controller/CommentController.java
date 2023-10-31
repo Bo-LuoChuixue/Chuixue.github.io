@@ -6,6 +6,7 @@ import cn.tedu._04weibo.pojo.entity.Comment;
 import cn.tedu._04weibo.pojo.vo.CommentVO;
 import cn.tedu._04weibo.pojo.vo.UserVO;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,7 @@ public class CommentController {
     @Autowired
     private CommentMapper commentMapper;
 
+    @ApiOperation(value = "发布评论")
     @PostMapping("insert")
     public int insertComment(@RequestBody CommentDTO commentDTO, HttpSession session){
         /*
@@ -44,6 +46,7 @@ public class CommentController {
      * @param id
      * @return
      */
+    @ApiOperation(value = "获取评论")
     @GetMapping("selectByWeiboId")
     public List<CommentVO> selectByWeiboId(int id){
         return commentMapper.selectByWeiboId(id);

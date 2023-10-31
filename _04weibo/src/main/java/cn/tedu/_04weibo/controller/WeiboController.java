@@ -7,6 +7,7 @@ import cn.tedu._04weibo.pojo.vo.UserVO;
 import cn.tedu._04weibo.pojo.vo.WeiboDetailVO;
 import cn.tedu._04weibo.pojo.vo.WeiboIndexVO;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,7 @@ public class WeiboController {
     /**
      * 发布微博功能
      */
+    @ApiOperation(value = "发布微博")
     @PostMapping("insert")
     public int insertWeibo(@RequestBody InsertWeiboDTO insertWeiboDTO, HttpSession session){
         /*
@@ -49,6 +51,7 @@ public class WeiboController {
     /**
      * 微博首页列表展示[不需要校验用户登录状态]
      */
+    @ApiOperation(value = "展示首页")
     @GetMapping("selectIndex")
     public List<WeiboIndexVO> selectIndex(){
         /*
@@ -60,17 +63,9 @@ public class WeiboController {
     /**
      * 微博详情功能
      */
+    @ApiOperation(value = "微博详情")
     @GetMapping("selectById")
     public WeiboDetailVO selectById(int id){
         return weiboMapper.selectById(id);
     }
-
 }
-
-
-
-
-
-
-
-
