@@ -14,7 +14,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
-
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
@@ -73,7 +72,7 @@ public class WeiboController {
             @ApiImplicitParam(name = "id", value = "微博编号", required = true, dataType = "int"),
             @ApiImplicitParam(name = "username", value = "用户名", required = true, dataType = "string")
     })
-    public WeiboDetailVO selectById(int id, String name) { //username参数单纯用于做Knife4j测试，无其他作用
+    public WeiboDetailVO selectById(int id, String username) { //username参数单纯用于做Knife4j测试，无其他作用
         return weiboMapper.selectById(id);
     }
 }
