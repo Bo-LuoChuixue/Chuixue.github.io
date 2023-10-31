@@ -53,7 +53,7 @@ public class UserController {
         user.setCreated(new Date());
         //调用接口方法
         userMapper.insertUser(user);
-        return new JsonResult(2001,"注册成功");
+        return new JsonResult(StatusCode.OPERATION_SUCCESS);
     }
 
     @ApiOperation(value = "登录功能")
