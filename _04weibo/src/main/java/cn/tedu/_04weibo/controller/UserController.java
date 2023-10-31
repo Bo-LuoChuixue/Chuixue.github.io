@@ -98,15 +98,4 @@ public class UserController {
     public void logout(@ApiIgnore HttpSession session){
         session.removeAttribute("user");
     }
-
 }
-
-
-
-
-
-
-
-
-
-
