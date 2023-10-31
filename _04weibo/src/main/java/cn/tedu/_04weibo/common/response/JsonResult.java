@@ -39,12 +39,23 @@ public class JsonResult {
 
     /**
      * 第三个构造方法：针对有具体数据返回的controller方法
-     * @param statusCode
-     * @param data
      */
     public JsonResult(StatusCode statusCode,Object data){
         this.code=statusCode.getCode();
         this.msg=statusCode.getMsg();
         this.data=data;
+    }
+
+    /**
+     * 定义两个静态方法：用于快速构建JsonResult对象
+     *        专门针对操作成功的业务场景
+     *        1.针对有具体数据返回的操作成功的业务场景
+     *        2.针对没有具体数据返回的操作成功的业务场景
+     */
+    public static JsonResult ok(Object data){
+        return new JsonResult(StatusCode.OPERATION_SUCCESS,data);
+    }
+    public static JsonResult ok(){
+        return ok(null);
     }
 }
