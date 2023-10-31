@@ -7,6 +7,7 @@ import cn.tedu._04weibo.pojo.vo.UserVO;
 import cn.tedu._04weibo.pojo.vo.WeiboDetailVO;
 import cn.tedu._04weibo.pojo.vo.WeiboIndexVO;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +67,7 @@ public class WeiboController {
      */
     @ApiOperation(value = "微博详情")
     @GetMapping("selectById")
+    @ApiImplicitParam(name = "id",value = "微博编号",required = true,dataType = "int")
     public WeiboDetailVO selectById(int id){
         return weiboMapper.selectById(id);
     }
