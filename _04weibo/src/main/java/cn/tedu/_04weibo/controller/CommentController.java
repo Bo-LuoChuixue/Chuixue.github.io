@@ -53,6 +53,6 @@ public class CommentController {
     @GetMapping("selectByWeiboId")
     public JsonResult selectByWeiboId(int id){
         List<CommentVO> commentVOS = commentMapper.selectByWeiboId(id);
-        return new JsonResult(StatusCode.OPERATION_SUCCESS, commentVOS);
+        return JsonResult.ok(commentVOS);
     }
 }

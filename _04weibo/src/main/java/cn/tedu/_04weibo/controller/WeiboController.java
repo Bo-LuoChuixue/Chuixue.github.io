@@ -63,7 +63,7 @@ public class WeiboController {
             直接调用接口获取所有微博信息
          */
         List<WeiboIndexVO> weiboIndexVOS = weiboMapper.selectIndex();
-        return new JsonResult(StatusCode.OPERATION_SUCCESS, weiboIndexVOS);
+        return JsonResult.ok(weiboIndexVOS);
     }
 
     /**
@@ -77,6 +77,6 @@ public class WeiboController {
     })
     public JsonResult selectById(int id, String username){//username参数单纯用于做Knife4j测试，无其他作用
         WeiboDetailVO weiboDetailVO = weiboMapper.selectById(id);
-        return new JsonResult(StatusCode.OPERATION_SUCCESS, weiboDetailVO);
+        return JsonResult.ok(weiboDetailVO);
     }
 }
