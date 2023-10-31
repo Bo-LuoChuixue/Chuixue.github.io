@@ -18,4 +18,14 @@ public class JsonResult {
     private Integer code;
     private String msg;
     private Object data;
+
+    /**
+     * 第一个构造方法：用于没有具体返回数据的controller方法
+     * @param code
+     * @param msg
+     */
+    public JsonResult(Integer code,String msg){
+        this.code=code;
+        this.msg=msg;
+    }
 }

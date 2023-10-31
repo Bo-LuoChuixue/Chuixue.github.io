@@ -1,5 +1,6 @@
 package cn.tedu._04weibo.controller;
 
+import cn.tedu._04weibo.common.response.JsonResult;
 import cn.tedu._04weibo.mapper.UserMapper;
 import cn.tedu._04weibo.pojo.dto.UserLoginDTO;
 import cn.tedu._04weibo.pojo.dto.UserRegDTO;
@@ -34,7 +35,7 @@ public class UserController {
      */
     @ApiOperation(value = "注册功能")
     @PostMapping("reg")
-    public int reg(@RequestBody UserRegDTO userRegDTO){
+    public JsonResult reg(@RequestBody UserRegDTO userRegDTO){
         /*
             1.确认用户名是否被占用[查询数据接口]
               1.1 被占用: return 2;
@@ -43,7 +44,7 @@ public class UserController {
         log.debug("userRegDTO="+userRegDTO);//使用日志进行调试
         UserVO userVO = userMapper.selectUser(userRegDTO.getUsername());
         if(userVO != null){ //被占用
-            return 2;
+            return new JsonResult(1004,"用户名被占用");
         }
         //执行注册流程
         User user = new User();
@@ -51,7 +52,7 @@ public class UserController {
         user.setCreated(new Date());
         //调用接口方法
         userMapper.insertUser(user);
-        return 1;
+        return new JsonResult(2001,"注册成功");
     }
 
     @ApiOperation(value = "登录功能")
