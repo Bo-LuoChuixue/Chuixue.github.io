@@ -84,11 +84,11 @@ public class UserController {
      */
     @ApiOperation(value = "获取当前用户")
     @GetMapping("currentUser")
-    public UserVO currentUser(@ApiIgnore HttpSession session){
+    public JsonResult currentUser(@ApiIgnore HttpSession session){
         //userVO可能为非空,可能为null
         UserVO userVO = (UserVO) session.getAttribute("user");
 
-        return userVO;
+        return new JsonResult(StatusCode.OPERATION_SUCCESS,userVO);
     }
 
     /**

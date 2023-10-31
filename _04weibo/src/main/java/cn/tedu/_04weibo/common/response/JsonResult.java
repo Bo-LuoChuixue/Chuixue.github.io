@@ -36,4 +36,15 @@ public class JsonResult {
         this.code=statusCode.getCode();
         this.msg=statusCode.getMsg();
     }
+
+    /**
+     * 第三个构造方法：针对有具体数据返回的controller方法
+     * @param statusCode
+     * @param data
+     */
+    public JsonResult(StatusCode statusCode,Object data){
+        this.code=statusCode.getCode();
+        this.msg=statusCode.getMsg();
+        this.data=data;
+    }
 }
