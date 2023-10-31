@@ -6,6 +6,7 @@ import cn.tedu._04weibo.pojo.dto.UserRegDTO;
 import cn.tedu._04weibo.pojo.entity.User;
 import cn.tedu._04weibo.pojo.vo.UserVO;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ public class UserController {
      * RequestBody注解:将客户端[前端]传递的数据转为JSON格式的字符串;
      * ResponseBody注解:将服务端[JAVA]传递的数据转为JSON格式的字符串;
      */
+    @ApiOperation(value = "注册功能")
     @PostMapping("reg")
     public int reg(@RequestBody UserRegDTO userRegDTO){
         /*
@@ -51,6 +53,7 @@ public class UserController {
         return 1;
     }
 
+    @ApiOperation(value = "登录功能")
     @PostMapping("login")
     public int login(@RequestBody UserLoginDTO userLoginDTO, HttpSession session){
         /*
