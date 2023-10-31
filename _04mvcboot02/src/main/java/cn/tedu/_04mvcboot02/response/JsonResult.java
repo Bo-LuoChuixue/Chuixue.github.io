@@ -23,11 +23,13 @@ public class JsonResult {
         this.code = statusCode.getCode();
         this.msg=statusCode.getMsg();
     }
+
     public JsonResult(StatusCode statusCode,Object data) {
         this.code=statusCode.getCode();
         this.msg=statusCode.getMsg();
         this.data=data;
     }
+
     public static JsonResult ok(Object data){
         return new JsonResult(StatusCode.OPERATION_SUCCESS, data);
     }
