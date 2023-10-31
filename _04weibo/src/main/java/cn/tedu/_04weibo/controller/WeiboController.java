@@ -6,14 +6,15 @@ import cn.tedu._04weibo.pojo.entity.Weibo;
 import cn.tedu._04weibo.pojo.vo.UserVO;
 import cn.tedu._04weibo.pojo.vo.WeiboDetailVO;
 import cn.tedu._04weibo.pojo.vo.WeiboIndexVO;
+import io.swagger.annotations.Api;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 
+@Api(tags = "02.微博模块")
 @RestController
 @RequestMapping("/v1/weibo/")
 public class WeiboController {

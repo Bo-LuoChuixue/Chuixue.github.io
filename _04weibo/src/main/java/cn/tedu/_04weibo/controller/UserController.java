@@ -5,6 +5,7 @@ import cn.tedu._04weibo.pojo.dto.UserLoginDTO;
 import cn.tedu._04weibo.pojo.dto.UserRegDTO;
 import cn.tedu._04weibo.pojo.entity.User;
 import cn.tedu._04weibo.pojo.vo.UserVO;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import java.util.Date;
  * Slf4j注解：Lombok提供的日志注解
  */
 
+@Api(tags = "01.用户模块")
 @Slf4j
 @RestController
 @RequestMapping("/v1/users/")
