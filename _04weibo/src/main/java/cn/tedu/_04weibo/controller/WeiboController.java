@@ -1,5 +1,7 @@
 package cn.tedu._04weibo.controller;
 
+import cn.tedu._04weibo.common.response.JsonResult;
+import cn.tedu._04weibo.common.response.StatusCode;
 import cn.tedu._04weibo.mapper.WeiboMapper;
 import cn.tedu._04weibo.pojo.dto.InsertWeiboDTO;
 import cn.tedu._04weibo.pojo.entity.Weibo;
@@ -31,7 +33,7 @@ public class WeiboController {
      */
     @ApiOperation(value = "发布微博")
     @PostMapping("insert")
-    public int insertWeibo(@RequestBody InsertWeiboDTO insertWeiboDTO, @ApiIgnore HttpSession session) {
+    public JsonResult insertWeibo(@RequestBody InsertWeiboDTO insertWeiboDTO, @ApiIgnore HttpSession session) {
         /*
             1.校验用户登录状态
             2.发布微博[调用接口]
@@ -39,7 +41,7 @@ public class WeiboController {
         //1.校验用户登录状态
         UserVO userVO = (UserVO) session.getAttribute("user");
         if (userVO == null) {//未登录
-            return 2;
+            return new JsonResult(StatusCode.NOT_LOGIN);
         }
         //2.存入数据
         Weibo weibo = new Weibo();
@@ -48,7 +50,7 @@ public class WeiboController {
         weibo.setUserId(userVO.getId());
         weiboMapper.insertWeibo(weibo);
         //发布成功
-        return 1;
+        return new JsonResult(StatusCode.OPERATION_SUCCESS);
     }
 
     /**
@@ -56,11 +58,12 @@ public class WeiboController {
      */
     @ApiOperation(value = "微博首页")
     @GetMapping("selectIndex")
-    public List<WeiboIndexVO> selectIndex() {
+    public JsonResult selectIndex(){
         /*
             直接调用接口获取所有微博信息
          */
-        return weiboMapper.selectIndex();
+        List<WeiboIndexVO> weiboIndexVOS = weiboMapper.selectIndex();
+        return new JsonResult(StatusCode.OPERATION_SUCCESS, weiboIndexVOS);
     }
 
     /**
@@ -72,7 +75,8 @@ public class WeiboController {
             @ApiImplicitParam(name = "id", value = "微博编号", required = true, dataType = "int"),
             @ApiImplicitParam(name = "username", value = "用户名", required = true, dataType = "string")
     })
-    public WeiboDetailVO selectById(int id, String username) { //username参数单纯用于做Knife4j测试，无其他作用
-        return weiboMapper.selectById(id);
+    public JsonResult selectById(int id, String username){//username参数单纯用于做Knife4j测试，无其他作用
+        WeiboDetailVO weiboDetailVO = weiboMapper.selectById(id);
+        return new JsonResult(StatusCode.OPERATION_SUCCESS, weiboDetailVO);
     }
 }

@@ -1,5 +1,7 @@
 package cn.tedu._04weibo.controller;
 
+import cn.tedu._04weibo.common.response.JsonResult;
+import cn.tedu._04weibo.common.response.StatusCode;
 import cn.tedu._04weibo.mapper.CommentMapper;
 import cn.tedu._04weibo.pojo.dto.CommentDTO;
 import cn.tedu._04weibo.pojo.entity.Comment;
@@ -24,14 +26,14 @@ public class CommentController {
 
     @ApiOperation(value = "发布评论")
     @PostMapping("insert")
-    public int insertComment(@RequestBody CommentDTO commentDTO,@ApiIgnore HttpSession session){
+    public JsonResult insertComment(@RequestBody CommentDTO commentDTO, @ApiIgnore HttpSession session){
         /*
             1.校验用户登录状态;
             2.调用接口插入数据.
          */
         UserVO userVO = (UserVO) session.getAttribute("user");
         if (userVO == null){ //未登录
-            return 2;
+            return new JsonResult(StatusCode.NOT_LOGIN);
         }
         //插入数据
         Comment comment = new Comment();
@@ -39,25 +41,18 @@ public class CommentController {
         comment.setCreated(new Date());
         comment.setUserId(userVO.getId());
         commentMapper.insertComment(comment);
-        return 1;
+        return new JsonResult(StatusCode.OPERATION_SUCCESS);
     }
 
     /**
      * 评论列表功能
-     * @param id
-     * @return
+     * @param id 微博id
+     * @return 评论的List集合
      */
     @ApiOperation(value = "获取评论")
     @GetMapping("selectByWeiboId")
-    public List<CommentVO> selectByWeiboId(int id){
-        return commentMapper.selectByWeiboId(id);
+    public JsonResult selectByWeiboId(int id){
+        List<CommentVO> commentVOS = commentMapper.selectByWeiboId(id);
+        return new JsonResult(StatusCode.OPERATION_SUCCESS, commentVOS);
     }
 }
-
-
-
-
-
-
-
-
