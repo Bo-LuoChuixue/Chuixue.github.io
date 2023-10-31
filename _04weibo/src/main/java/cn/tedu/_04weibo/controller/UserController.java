@@ -87,8 +87,7 @@ public class UserController {
     public JsonResult currentUser(@ApiIgnore HttpSession session){
         //userVO可能为非空,可能为null
         UserVO userVO = (UserVO) session.getAttribute("user");
-
-        return new JsonResult(StatusCode.OPERATION_SUCCESS,userVO);
+        return JsonResult.ok(userVO);
     }
 
     /**
