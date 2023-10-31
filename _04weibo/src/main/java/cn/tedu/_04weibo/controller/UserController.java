@@ -58,7 +58,7 @@ public class UserController {
 
     @ApiOperation(value = "登录功能")
     @PostMapping("login")
-    public int login(@RequestBody UserLoginDTO userLoginDTO,@ApiIgnore HttpSession session){
+    public JsonResult login(@RequestBody UserLoginDTO userLoginDTO,@ApiIgnore HttpSession session){
         /*
             1.调用接口,根据用户名查询;
               1.1 未查到数据,return 3;
@@ -68,15 +68,15 @@ public class UserController {
          */
         UserVO userVO = userMapper.selectUser(userLoginDTO.getUsername());
         if(userVO == null){ //用户名错误
-            return 3;
+            return new JsonResult(StatusCode.USERNAME_ERROR);
         }
         //校验密码
         if(userVO.getPassword().equals(userLoginDTO.getPassword())){
             //登录成功之前,需要在服务器内存中设置会话保持标识key-value
             session.setAttribute("user", userVO);
-            return 1; //登录成功
+            return new JsonResult(StatusCode.LOGIN_SUCCESS); //登录成功
         }
-        return 2; //密码错误
+        return new JsonResult(StatusCode.PASSWORD_ERROR); //密码错误
     }
 
     /**
