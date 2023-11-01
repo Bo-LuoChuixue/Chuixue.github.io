@@ -54,9 +54,9 @@ public class GlobalExceptionHandler {
      * 2.一旦添加了此異常處理方法，則程序中再也看不到500狀態碼來了
      * 3.一般在最後添加此異常處理方法
      */
-    @ExceptionHandler
+    /*@ExceptionHandler
     public JsonResult doHandleThrowableException(Throwable ex){
         String data= ex.getMessage();
         return new JsonResult(StatusCode.THROWABLE_ERROR,data);
-    }
+    }*/
 }

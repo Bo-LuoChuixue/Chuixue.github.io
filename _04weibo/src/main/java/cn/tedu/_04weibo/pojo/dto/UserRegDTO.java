@@ -2,7 +2,7 @@ package cn.tedu._04weibo.pojo.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.NonNull;
+import javax.validation.constraints.NotNull;
 
 /**
  * 注册功能DTO类
@@ -11,7 +11,7 @@ import lombok.NonNull;
 @Data
 public class UserRegDTO {
     //用户名,密码,昵称
-    @NonNull
+    @NotNull
     @ApiModelProperty(value = "用户名",required = true,example = "橙留香")
     private String username;
     @ApiModelProperty(value = "密码",required = true,example = "123456")

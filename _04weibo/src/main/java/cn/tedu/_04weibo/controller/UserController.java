@@ -12,6 +12,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 import javax.servlet.http.HttpSession;
@@ -36,7 +37,7 @@ public class UserController {
      */
     @ApiOperation(value = "注册功能")
     @PostMapping("reg")
-    public JsonResult reg(@RequestBody UserRegDTO userRegDTO){
+    public JsonResult reg(@RequestBody @Validated UserRegDTO userRegDTO){
         /*
             1.确认用户名是否被占用[查询数据接口]
               1.1 被占用: return 2;
