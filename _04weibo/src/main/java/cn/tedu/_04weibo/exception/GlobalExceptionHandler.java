@@ -34,4 +34,18 @@ public class GlobalExceptionHandler {
         log.error("RuntimeException"+data);
         return new JsonResult(StatusCode.OPERATION_FAILED,data);
     }
+
+    /**
+     * 控制器拋出異常后
+     *        1.找到全局異常處理器[@RestControllerAdvice]
+     *        2.找對應的異常處理方法
+     *        3.如果沒有定義對應的異常處理方法，則找該異常父類的處理方法
+     *        4.如果也沒有定義父類的異常處理方法，則使用SpringMVC默認的異常處理機制
+     */
+    @ExceptionHandler
+    public JsonResult doHandleIllegalArgumentException(IllegalArgumentException exception){
+        String data= exception.getMessage();
+        log.error("IllegalArgumentException"+data);
+        return new JsonResult(StatusCode.OPERATION_FAILED,data);
+    }
 }
