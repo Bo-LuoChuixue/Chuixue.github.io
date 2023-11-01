@@ -48,4 +48,15 @@ public class GlobalExceptionHandler {
         log.error("IllegalArgumentException"+data);
         return new JsonResult(StatusCode.OPERATION_FAILED,data);
     }
+
+    /**
+     * 1.如果所有的異常處理方法都無法處理該異常時，會被此方法捕獲
+     * 2.一旦添加了此異常處理方法，則程序中再也看不到500狀態碼來了
+     * 3.一般在最後添加此異常處理方法
+     */
+    @ExceptionHandler
+    public JsonResult doHandleThrowableException(Throwable ex){
+        String data= ex.getMessage();
+        return new JsonResult(StatusCode.THROWABLE_ERROR,data);
+    }
 }
