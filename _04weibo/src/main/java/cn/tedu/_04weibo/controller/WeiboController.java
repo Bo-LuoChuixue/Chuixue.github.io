@@ -76,6 +76,9 @@ public class WeiboController {
             @ApiImplicitParam(name = "username", value = "用户名", required = true, dataType = "string")
     })
     public JsonResult selectById(int id, String username){//username参数单纯用于做Knife4j测试，无其他作用
+        if(id<0){
+            throw new IllegalArgumentException("ID值无效");//手动抛出异常
+        }
         WeiboDetailVO weiboDetailVO = weiboMapper.selectById(id);
         return JsonResult.ok(weiboDetailVO);
     }
