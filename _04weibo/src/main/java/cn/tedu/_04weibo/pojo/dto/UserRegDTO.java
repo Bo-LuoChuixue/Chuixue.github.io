@@ -2,6 +2,9 @@ package cn.tedu._04weibo.pojo.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -11,7 +14,9 @@ import javax.validation.constraints.NotNull;
 @Data
 public class UserRegDTO {
     //用户名,密码,昵称
-    @NotNull(message = "用户名不能为null")
+    //@NotNull(message = "用户名不能为null")
+    //@NotEmpty(message = "用户名不能为null和空字符串")
+    @NotBlank(message = "用户名不能为null和空字符串,也不能为空白串")
     @ApiModelProperty(value = "用户名",required = true,example = "橙留香")
     private String username;
     @ApiModelProperty(value = "密码",required = true,example = "123456")
