@@ -19,7 +19,8 @@ public enum StatusCode {
     USERNAME_ALREADY_EXISTS(1004,"用户名已存在"),
     OPERATION_SUCCESS(2001,"操作成功"),
     OPERATION_FAILED(2002,"操作失败"),
-    THROWABLE_ERROR(8888,"Throwable异常");
+    THROWABLE_ERROR(8888,"Throwable异常"),
+    VALIDATED_ERROR(3002,"参数校验失败");
     private Integer code;
     private String msg;
 }

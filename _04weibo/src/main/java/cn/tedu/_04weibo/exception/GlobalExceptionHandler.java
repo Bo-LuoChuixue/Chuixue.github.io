@@ -3,6 +3,7 @@ package cn.tedu._04weibo.exception;
 import cn.tedu._04weibo.common.response.JsonResult;
 import cn.tedu._04weibo.common.response.StatusCode;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -47,6 +48,12 @@ public class GlobalExceptionHandler {
         String data= exception.getMessage();
         log.error("IllegalArgumentException"+data);
         return new JsonResult(StatusCode.OPERATION_FAILED,data);
+    }
+
+    @ExceptionHandler
+    public JsonResult doHandleMethodArgumentNotValidException(MethodArgumentNotValidException exception){
+        String data =exception.getFieldError().getDefaultMessage();
+        return new JsonResult(StatusCode.VALIDATED_ERROR,data);
     }
 
     /**

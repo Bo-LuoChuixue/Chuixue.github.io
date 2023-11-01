@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @Data
 public class UserRegDTO {
     //用户名,密码,昵称
-    @NotNull
+    @NotNull(message = "用户名不能为null")
     @ApiModelProperty(value = "用户名",required = true,example = "橙留香")
     private String username;
     @ApiModelProperty(value = "密码",required = true,example = "123456")
