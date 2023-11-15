@@ -2,7 +2,6 @@ package cn.tedu._04weibo.pojo.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-
 import javax.validation.constraints.*;
 
 /**
